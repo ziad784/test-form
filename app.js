@@ -77,7 +77,8 @@ answers_array.forEach((ele)=>{
             if(right_ans == e.target.value){
                 
                 card.style.display = "block";
-                card.innerHTML = `<div class="right"><span class="green">${getRandomWord(right_words)}</span> Correct answer.</div>`
+                card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                <div class="right"><span class="green">${getRandomWord(right_words)}</span> Correct answer.</div>`
 
                 q_array.forEach((radio)=>{
                     radio.children[0].disabled = true
@@ -100,9 +101,17 @@ answers_array.forEach((ele)=>{
 
 
                     card.style.display = "block";
-                    card.innerHTML = `<div class="try_again">${getRandomWord(TryAgain_words)}</div>`
+                    card.innerHTML = ` <div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                    <div class="try_again orange">${getRandomWord(TryAgain_words)}</div>`
                     element.remove();
-                    try_count = 0
+                  
+                    card.addEventListener("click",(e)=>{
+          
+
+                        document.getElementById(e.currentTarget.dataset.btn).style = "block"
+                        card.style.display = "none"
+    
+                    })
                    
                     
                      
@@ -111,14 +120,15 @@ answers_array.forEach((ele)=>{
                 }else{
 
 
-                    if(card.children[0].className == "try_again"){
+                    if(card.children[1].className == "try_again"){
 
                         const random_index = Math.floor(Math.random() * wrong_short_words.length)
                         const wrong_short = wrong_short_words[random_index];
                         const wrong_long = wrong_long_words[random_index]
                         
                         card.style.display = "block";
-                        card.innerHTML = `<div class="wrong"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span> <span class="blue">"${right_ans}"</span> </div>`
+                        card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                        <div class="wrong"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span> <span class="blue">"${right_ans}"</span> </div>`
     
                         q_array.forEach((radio)=>{
                             radio.children[0].disabled = true
