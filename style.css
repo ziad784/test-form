@@ -20,10 +20,7 @@
 .cont{
     background-color: white;
     padding: 3%;
-    border: 1px solid #24528f;
-    border-radius: 5px;
-    width: 55vw;
-    margin-top: 10vh;
+    width: 100vw;
     height: fit-content;
 }
 
@@ -63,14 +60,23 @@ label{
 .answers_grid{
     display: grid;
     grid-template-columns: 50% 50%;
-    margin-top: 10px;
+    margin-top: 20px;
     gap: 10px;
+    
+    justify-items: center;
+}
+
+.answers_grid > div{
+    
+   width: 120px;
 }
 
 
 .question{
-    color: #24528f;
+    
     margin-top: 10vh;
+    
+
 }
 
 .btn_cont{
@@ -83,7 +89,7 @@ label{
     border: none;
     outline: none;
     border-radius: 5px;
-    padding: 2%;
+    padding: 1%;
     color: white;
     width: 120px;
     font-size: 17px;
@@ -110,9 +116,9 @@ label{
 .box{
     position: relative;
     text-align: center;
-    border: 0.5px solid rgba(128, 128, 128, 0.767);
+    border: 0.5px solid rgba(0, 0, 0, 0.596);
     border-radius: 15px;
-    padding: 2%;
+    padding: 1%;
     margin-top: 10vh;
     transition: .3s;
     font-size: 17px;
@@ -120,6 +126,8 @@ label{
     align-items: center;
     justify-content: center;
     gap: 10vh;
+    width: 50vw;
+    margin: auto;
 }
 
 .box:hover{
@@ -130,8 +138,8 @@ label{
 .x_mark{
     
     position: absolute;
-    right: 1%;
-    top: 4%;
+    right: 3%;
+    top: 10%;
     color: white;
     font-size: 20px;
     display: flex;
@@ -140,6 +148,7 @@ label{
     color: red;
     
 }
+
 
 .checked{
     color: gold;
@@ -178,8 +187,14 @@ label{
 
 
 @media only screen and (max-width: 1000px) {
-    .cont{
-        width: 90vw;
+
+    .btn_cont > button{
+        padding: 2%;
+    }
+
+
+    .box{
+        width: 100%;
     }
   
 }

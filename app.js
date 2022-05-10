@@ -176,8 +176,8 @@ answers_array.forEach((ele)=>{
                         
                         card.style.display = "flex";
                         card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
-                        <div><img width="100" height="100" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
-                        <div class="wrong"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span> <span class="blue">"${right_ans}"</span> </div>`
+                        <div style="flex:1"><img width="100" height="100" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
+                        <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span> <span class="blue">"${right_ans}"</span> </div>`
     
                         document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
                         q_array.forEach((radio)=>{
@@ -217,7 +217,7 @@ const show_btns = Array.from(document.querySelectorAll(".show_btn"))
 show_btns.forEach((ele)=>{
     ele.addEventListener("click",(e)=>{
         
-        document.getElementById(e.currentTarget.dataset.card).style = "flex"
+        document.getElementById(e.currentTarget.dataset.card).style.display = "flex"
         ele.style.display = "none"
     })
 })
