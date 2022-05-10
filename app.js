@@ -105,18 +105,6 @@ answers_array.forEach((ele)=>{
                     card.innerHTML = ` <div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                     <div class="try_again orange">${getRandomWord(TryAgain_words)}</div>`
                     element.remove();
-                  
-                    card.addEventListener("click",(e)=>{
-          
-
-                        document.getElementById(e.currentTarget.dataset.btn).style = "block"
-                        card.style.display = "none"
-    
-                    })
-                   
-                    
-                     
-
 
                 }else{
 
