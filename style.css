@@ -76,7 +76,21 @@ label{
     
     margin-top: 10vh;
     
+    
 
+}
+
+.question > h3{
+    color: #24528f;
+}
+
+form{
+    padding-bottom: 20px;
+}
+
+.emoji_img{
+    width: 100px;
+    height: 100px;
 }
 
 .btn_cont{
@@ -116,7 +130,7 @@ label{
 .box{
     position: relative;
     text-align: center;
-    border: 0.5px solid rgba(0, 0, 0, 0.596);
+    border: 0.5px solid #24528f;
     border-radius: 15px;
     padding: 1%;
     margin-top: 10vh;
@@ -125,13 +139,13 @@ label{
     font-weight: bold;
     align-items: center;
     justify-content: center;
-    gap: 10vh;
+   
     width: 50vw;
     margin: auto;
 }
 
 .box:hover{
-    background-color: rgba(255, 0, 0, 0.336);
+    background-color: #0088ff2d;
     cursor: pointer;
 }
 
@@ -145,7 +159,7 @@ label{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: red;
+    color: #24528f;
     
 }
 
@@ -172,10 +186,10 @@ label{
 
 .ratings{
     display: flex;
-    font-size: 30px;
+    font-size: 33px;
     gap: 10px;
     margin-top: 20px;
-    
+    color: #24528f;
     justify-content: center;
    
 }
@@ -188,6 +202,11 @@ label{
 
 @media only screen and (max-width: 1000px) {
 
+    .emoji_img{
+        width: 70px;
+        height: 70px;
+    }
+
     .btn_cont > button{
         padding: 2%;
     }
@@ -195,6 +214,8 @@ label{
 
     .box{
         width: 100%;
+        font-size: 15px;
+        padding: 6%;
     }
   
 }

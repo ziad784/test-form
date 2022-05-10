@@ -76,7 +76,6 @@ const wrong_imgs = [
 const correct_sounds = [
     "sounds/correct/correct1.mp3",
     "sounds/correct/correct2.mp3",
-    "sounds/correct/correct3.mp3",
     "sounds/correct/correct4.mp3",
     "sounds/correct/correct5.mp3",
     "sounds/correct/correct6.mp3"
@@ -93,7 +92,6 @@ const again_sounds = [
 const wrong_sounds = [
     "sounds/wrong/wrong1.mp3",
     "sounds/wrong/wrong2.mp3",
-    "sounds/wrong/wrong4.mp3",
     "sounds/wrong/wrong3.mp3",
 
 
@@ -130,8 +128,8 @@ answers_array.forEach((ele)=>{
                 
                 card.style.display = "flex";
                 card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
-                <div><img width="100" height="100" style="object-fit:contain;" src="${getRandomWord(correct_imgs)}" alt=""></div>
-                <div class="right"><span class="green">${getRandomWord(right_words)}</span> Correct answer.</div>`
+                <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(correct_imgs)}" alt=""></div>
+                <div style="flex:2" class="right"><span class="green">${getRandomWord(right_words)}</span> Correct answer.</div>`
 
                 document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
                 q_array.forEach((radio)=>{
@@ -153,12 +151,12 @@ answers_array.forEach((ele)=>{
                 if(card.children.length === 0){
                   
                     const audio = new Audio() 
-                    audio.src = getRandomWord(again_sounds)
+                    audio.src = "sounds/again/again2.mp3"
                     audio.play()
                     card.style.display = "flex";
                     card.innerHTML = ` <div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
-                    <div><img width="100"  height="100" style="object-fit:contain;" src="${getRandomWord(again_imgs)}" alt=""></div>
-                    <div class="try_again orange">${getRandomWord(TryAgain_words)}</div>`
+                    <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(again_imgs)}" alt=""></div>
+                    <div class="try_again orange" style="flex:2">${getRandomWord(TryAgain_words)}</div>`
                     element.remove();
 
                 }else{
@@ -176,7 +174,7 @@ answers_array.forEach((ele)=>{
                         
                         card.style.display = "flex";
                         card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
-                        <div style="flex:1"><img width="100" height="100" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
+                        <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
                         <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span> <span class="blue">"${right_ans}"</span> </div>`
     
                         document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
