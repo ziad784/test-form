@@ -114,6 +114,7 @@ answers_array.forEach((ele)=>{
     q_array.forEach((element)=>{
       
         element.children[0].addEventListener("change",(e)=>{
+            const q_num = ele.dataset.q
 
             const card = document.getElementById(ele.dataset.q+"_card");
            
@@ -121,6 +122,13 @@ answers_array.forEach((ele)=>{
             
             
             if(right_ans == e.target.value){
+                const all_answers = Array.from(document.querySelectorAll(".answer"))
+                all_answers.forEach((ele)=>{
+                    
+                    ele.children[0].disabled = false
+                
+            })
+
 
                 const audio = new Audio() 
                 audio.src = getRandomWord(correct_sounds)
@@ -136,13 +144,18 @@ answers_array.forEach((ele)=>{
                     radio.children[0].disabled = true
                 })
 
-                card.addEventListener("click",(e)=>{
-          
+                const x_marks = Array.from(document.querySelectorAll(".x_mark"))
+                x_marks.forEach((ele)=>{
+                    ele.addEventListener("click",()=>{
 
-                    document.getElementById(e.currentTarget.dataset.btn).style = "block"
+                            
+                    document.getElementById(card.dataset.btn).style = "block"
                     card.style.display = "none"
-
+                    })
                 })
+
+            
+
                
 
             }else{
@@ -154,16 +167,29 @@ answers_array.forEach((ele)=>{
                     audio.src = "sounds/again/again2.mp3"
                     audio.play()
                     card.style.display = "flex";
-                    card.innerHTML = ` <div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                    card.innerHTML = ` 
                     <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(again_imgs)}" alt=""></div>
                     <div class="try_again orange" style="flex:2">${getRandomWord(TryAgain_words)}</div>`
                     element.remove();
+
+                    const all_answers = Array.from(document.querySelectorAll(".answer"))
+                    all_answers.forEach((ele)=>{
+                        if(!ele.classList.contains(q_num)){
+                            ele.children[0].disabled = true
+                        }
+                    })
 
                 }else{
 
                     
                     
-                    if(card.children[2].classList.contains("try_again")){
+                    if(card.children[1].classList.contains("try_again")){
+                        const all_answers = Array.from(document.querySelectorAll(".answer"))
+                        all_answers.forEach((ele)=>{
+                            
+                                ele.children[0].disabled = false
+                            
+                        })
 
                         const random_index = Math.floor(Math.random() * wrong_short_words.length)
                         const wrong_short = wrong_short_words[random_index];
@@ -182,13 +208,18 @@ answers_array.forEach((ele)=>{
                             radio.children[0].disabled = true
                         })
     
-                        card.addEventListener("click",(e)=>{
-                  
-    
-                            document.getElementById(e.currentTarget.dataset.btn).style = "block"
+                        const x_marks = Array.from(document.querySelectorAll(".x_mark"))
+                        x_marks.forEach((ele)=>{
+                            ele.addEventListener("click",()=>{
+
+                                    
+                            document.getElementById(card.dataset.btn).style = "block"
                             card.style.display = "none"
-    
+                            })
                         })
+
+
+
                        
 
 
