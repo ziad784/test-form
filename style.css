@@ -51,6 +51,10 @@ label{
     color: green;
 }
 
+.lightgreen{
+    color: lawngreen;
+}
+
 .orange{
     color: #CC5500;
 }
@@ -126,13 +130,45 @@ label{
     right: 1%;
     top: 4%;
     color: white;
-    width: 30px;
-    height: 30px;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
-    border-radius: 50%;
+    color: red;
+    
+}
+
+.checked{
+    color: gold;
+}
+
+.hov_red:hover{
+    color: red;
+}
+
+.hov_orange:hover{
+    color: orange;
+}
+
+.hov_lightgreen:hover{
+    color: lawngreen;
+}
+
+.hov_green:hover{
+    color: green;
+}
+
+.ratings{
+    display: flex;
+    font-size: 25px;
+    gap: 10px;
+    margin-top: 10px;
+   
+}
+
+.ratings > div{
+    transition: .3s;
+    cursor: pointer;
 }
 
 

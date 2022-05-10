@@ -80,6 +80,7 @@ answers_array.forEach((ele)=>{
                 card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                 <div class="right"><span class="green">${getRandomWord(right_words)}</span> Correct answer.</div>`
 
+                document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
                 q_array.forEach((radio)=>{
                     radio.children[0].disabled = true
                 })
@@ -119,8 +120,9 @@ answers_array.forEach((ele)=>{
 
                 }else{
 
+                    
 
-                    if(card.children[1].className == "try_again"){
+                    if(card.children[1].classList.contains("try_again")){
 
                         const random_index = Math.floor(Math.random() * wrong_short_words.length)
                         const wrong_short = wrong_short_words[random_index];
@@ -130,6 +132,7 @@ answers_array.forEach((ele)=>{
                         card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                         <div class="wrong"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span> <span class="blue">"${right_ans}"</span> </div>`
     
+                        document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
                         q_array.forEach((radio)=>{
                             radio.children[0].disabled = true
                         })
@@ -160,51 +163,6 @@ answers_array.forEach((ele)=>{
 })
 
 
-// const q1_array = Array.from(document.querySelectorAll('input[name="q1"]'));
-
-// q1_array.forEach((ele)=>{
-//     ele.addEventListener("change",(e)=>{
-
-//         if(e.target.value == answers[0].q1){
-//             const q1_card = document.getElementById("q1_card");
-//             q1_card.style.display = "block";
-//             q1_card.innerHTML = `<div><span class="green">${getRandomWord(right_words)}</span> Correct answer.</div>`
-
-//             q1_array.forEach((element)=>{
-//                 element.disabled = true
-//             })
-
-//             q1_card.addEventListener("click",(e)=>{
-              
-
-//                 document.getElementById(e.currentTarget.dataset.btn).style = "block"
-//                 q1_card.style.display = "none"
-
-//             })
-
-//         }else{
-
-//             const q1_card = document.getElementById("q1_card");
-//             q1_card.style.display = "block";
-//             q1_card.innerHTML = `<div class="try_again">${getRandomWord(TryAgain_words)}</div>`
-
-//             q1_array.forEach((element)=>{
-//                 if(element.value == e.target.value){
-//                     element.remove();
-//                 }
-//             })
-
-//             q1_card.addEventListener("click",(e)=>{
-              
-
-//                 document.getElementById(e.currentTarget.dataset.btn).style = "block"
-//                 q1_card.style.display = "none"
-
-//             })
-
-//         }
-//     })
-// })
 
 
 const show_btns = Array.from(document.querySelectorAll(".show_btn"))
@@ -214,5 +172,31 @@ show_btns.forEach((ele)=>{
         
         document.getElementById(e.currentTarget.dataset.card).style = "block"
         ele.style.display = "none"
+    })
+})
+
+
+
+const rating = Array.from(document.querySelectorAll(".rating"))
+
+rating.forEach((ele)=>{
+    ele.addEventListener("click",(e)=>{
+        
+        const color_name = e.currentTarget.className.split("_")[1];
+        console.log(color_name);
+        e.currentTarget.classList.add(color_name)
+
+        rating.forEach((ele)=>{
+            
+            if(ele.dataset.q == e.currentTarget.dataset.q){
+                if(ele != e.currentTarget){
+                    ele.classList.remove(ele.classList[2])
+                }
+
+            }
+
+           
+        })
+
     })
 })
