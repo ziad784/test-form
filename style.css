@@ -112,11 +112,14 @@ label{
     text-align: center;
     border: 0.5px solid rgba(128, 128, 128, 0.767);
     border-radius: 15px;
-    padding: 5%;
+    padding: 2%;
     margin-top: 10vh;
     transition: .3s;
     font-size: 17px;
     font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    gap: 10vh;
 }
 
 .box:hover{

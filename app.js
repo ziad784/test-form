@@ -52,6 +52,54 @@ const wrong_long_words = [
     
 ]
 
+const correct_imgs = [
+    "imgs/correct/correct1.gif",
+    "imgs/correct/correct2.gif",
+    "imgs/correct/correct3.gif",
+    "imgs/correct/correct4.gif"
+]
+
+const again_imgs = [
+    "imgs/again/again1.gif",
+    "imgs/again/again2.gif",
+    "imgs/again/again3.gif"
+]
+
+const wrong_imgs = [
+    "imgs/wrong/wrong1.gif",
+    "imgs/wrong/wrong2.gif",
+    "imgs/wrong/wrong3.gif"
+
+]
+
+
+const correct_sounds = [
+    "sounds/correct/correct1.mp3",
+    "sounds/correct/correct2.mp3",
+    "sounds/correct/correct3.mp3",
+    "sounds/correct/correct4.mp3",
+    "sounds/correct/correct5.mp3",
+    "sounds/correct/correct6.mp3"
+
+]
+
+const again_sounds = [
+    "sounds/again/again1.mp3",
+    "sounds/again/again2.mp3",
+
+
+]
+
+const wrong_sounds = [
+    "sounds/wrong/wrong1.mp3",
+    "sounds/wrong/wrong2.mp3",
+    "sounds/wrong/wrong4.mp3",
+    "sounds/wrong/wrong3.mp3",
+
+
+]
+
+
 
 function getRandomWord(words){
     return words[Math.floor(Math.random() * words.length)]
@@ -75,9 +123,14 @@ answers_array.forEach((ele)=>{
             
             
             if(right_ans == e.target.value){
+
+                const audio = new Audio() 
+                audio.src = getRandomWord(correct_sounds)
+                audio.play()
                 
-                card.style.display = "block";
+                card.style.display = "flex";
                 card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                <div><img width="100" height="100" style="object-fit:contain;" src="${getRandomWord(correct_imgs)}" alt=""></div>
                 <div class="right"><span class="green">${getRandomWord(right_words)}</span> Correct answer.</div>`
 
                 document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
@@ -99,25 +152,31 @@ answers_array.forEach((ele)=>{
              
                 if(card.children.length === 0){
                   
-
-
-                    card.style.display = "block";
+                    const audio = new Audio() 
+                    audio.src = getRandomWord(again_sounds)
+                    audio.play()
+                    card.style.display = "flex";
                     card.innerHTML = ` <div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                    <div><img width="100"  height="100" style="object-fit:contain;" src="${getRandomWord(again_imgs)}" alt=""></div>
                     <div class="try_again orange">${getRandomWord(TryAgain_words)}</div>`
                     element.remove();
 
                 }else{
 
                     
-
-                    if(card.children[1].classList.contains("try_again")){
+                    
+                    if(card.children[2].classList.contains("try_again")){
 
                         const random_index = Math.floor(Math.random() * wrong_short_words.length)
                         const wrong_short = wrong_short_words[random_index];
                         const wrong_long = wrong_long_words[random_index]
+                        const audio = new Audio() 
+                        audio.src = getRandomWord(wrong_sounds)
+                        audio.play()
                         
-                        card.style.display = "block";
+                        card.style.display = "flex";
                         card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                        <div><img width="100" height="100" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
                         <div class="wrong"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span> <span class="blue">"${right_ans}"</span> </div>`
     
                         document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
@@ -158,7 +217,7 @@ const show_btns = Array.from(document.querySelectorAll(".show_btn"))
 show_btns.forEach((ele)=>{
     ele.addEventListener("click",(e)=>{
         
-        document.getElementById(e.currentTarget.dataset.card).style = "block"
+        document.getElementById(e.currentTarget.dataset.card).style = "flex"
         ele.style.display = "none"
     })
 })
