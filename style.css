@@ -25,7 +25,8 @@
 }
 
 p{
-    text-align: center;
+    width: 50%;
+    margin: auto;
     margin-top: 5vh;
     font-size: 17px;
 }
@@ -209,6 +210,9 @@ form{
 
 
 @media only screen and (max-width: 1000px) {
+    p{
+        width: 80%;
+    }
 
     .emoji_img{
         width: 70px;

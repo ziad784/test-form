@@ -61,7 +61,7 @@ const correct_imgs = [
 
 const again_imgs = [
     "imgs/again/again1.gif",
-    "imgs/again/again2.png",
+    "imgs/again/again2.gif",
     "imgs/again/again3.gif"
 ]
 
