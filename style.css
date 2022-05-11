@@ -25,6 +25,7 @@
 }
 
 p{
+    text-align: center;
     margin-top: 5vh;
     font-size: 17px;
 }
@@ -112,6 +113,7 @@ form{
 
 .btn_center{
     justify-content: center;
+
 }
 
 .mg-10{
@@ -121,6 +123,10 @@ form{
     margin-top: 5vh;
 }
 
+.btn_cont > button{
+    
+    width: fit-content;
+}
 
 .btn_cont > button:hover{
     background-color: #2e69ff;
@@ -155,7 +161,7 @@ form{
     right: 3%;
     top: 10%;
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -186,7 +192,7 @@ form{
 
 .ratings{
     display: flex;
-    font-size: 30px;
+    font-size: 35px;
     gap: 10px;
     padding: 5px;
     margin-top: 20px;
@@ -198,6 +204,7 @@ form{
 .ratings > div{
     transition: .3s;
     cursor: pointer;
+    
 }
 
 
