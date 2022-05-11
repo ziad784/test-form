@@ -113,6 +113,7 @@ form{
 .choose_btns{
     justify-content: space-around;
     margin-top: 20px;
+    flex-direction: row;
 }
 
 .btn_center{

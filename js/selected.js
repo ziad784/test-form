@@ -379,8 +379,12 @@ answers_array.forEach((ele)=>{
                    
                     card.innerHTML = ` 
                     <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(again_imgs)}" alt=""></div>
-                    <div class="try_again orange" style="flex:2">${getRandomWord(TryAgain_words)}</div>`
+                    <div class="try_again orange" style="flex:2">Please, Select the feedback of your choice</div>`
                     element.remove();
+
+                    choose_btns.style = "flex"
+
+                    card.appendChild(choose_btns)
 
                     const all_answers = Array.from(document.querySelectorAll(".answer"))
                     all_answers.forEach((ele)=>{
