@@ -282,13 +282,14 @@ answers_array.forEach((ele)=>{
 
 
 
-                const audio = new Audio() 
-                audio.src = getRandomWord(correct_sounds)
-                audio.play()
 
                 const choose_btns_array = Array.from(choose_btns.children);
                 choose_btns_array.forEach((btn)=>{
                     btn.addEventListener("click",()=>{
+                        
+                    const audio = new Audio() 
+                    audio.src = getRandomWord(correct_sounds)
+                    audio.play()
 
                         q_array.forEach((radio)=>{
                             radio.children[0].disabled = true
@@ -409,13 +410,14 @@ answers_array.forEach((ele)=>{
                         const random_index = Math.floor(Math.random() * wrong_short_words.length)
                         const wrong_short = wrong_short_words[random_index];
                         const wrong_long = wrong_long_words[random_index]
-                        const audio = new Audio() 
-                        audio.src = getRandomWord(wrong_sounds)
-                        audio.play()
+
 
                         const choose_btns_array = Array.from(choose_btns.children);
                         choose_btns_array.forEach((btn)=>{
                             btn.addEventListener("click",()=>{
+                                const audio = new Audio() 
+                                audio.src = getRandomWord(wrong_sounds)
+                                audio.play()
 
                                 q_array.forEach((radio)=>{
                                     radio.children[0].disabled = true
