@@ -262,7 +262,7 @@ answers_array.forEach((ele)=>{
                     radio.children[0].disabled = true
                     radio.children[0].classList.add("none_editable")
                 })
-                console.log(q_array);
+                
 
                 const x_marks = Array.from(document.querySelectorAll(".x_mark"))
                 x_marks.forEach((ele)=>{

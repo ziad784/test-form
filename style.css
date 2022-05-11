@@ -109,6 +109,12 @@ form{
     transition: .3s;
 }
 
+
+.choose_btns{
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
 .btn_center{
     justify-content: center;
 
