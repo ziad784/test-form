@@ -59,13 +59,8 @@ label{
 }
 
 
-.answers_grid{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    margin-top: 20px;
-    gap: 10px;
-    
-    
+.bold{
+    font-weight: bold;
 }
 
 .answers_grid > div{
