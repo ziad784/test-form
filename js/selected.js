@@ -143,9 +143,11 @@ const back_btn = document.getElementById("back_btn");
 
 
 let page = 1;
-
 function RenderPage(){
     const count = page * 4
+    if(page < 5 || page == 0){
+        next_btn.style.display = "block"
+    }
     const questions = Array.from(document.querySelector(".questions").children)
     questions.forEach((ele)=>{
         ele.style.display = "none"
@@ -157,6 +159,7 @@ function RenderPage(){
         
     }
 }
+
 
 
 window.onload = RenderPage
@@ -266,7 +269,35 @@ answers_array.forEach((ele)=>{
             
             if(right_ans == e.target.value){
 
+                const choose_btns_array = Array.from(choose_btns.children);
+                const wrapper = document.createElement("div");
+                wrapper.className = "choose_btns btn_cont"
+
+
+
+                choose_btns_array.forEach((ele)=>{
+                    wrapper.appendChild(ele);
+
+                })
+
+                choose_btns.appendChild(wrapper)
+
+                
+                const txt = document.createElement("div");
+                txt.className = " bold"
+                txt.style.fontSize = "18px"
+                txt.textContent = "Please, Select the feedback of your choice"
+                const br = document.createElement("br");
+                choose_btns.prepend(br)
+                choose_btns.prepend(txt)
+
+
+
+
+
                 choose_btns.style.display = "flex"
+
+                card.style.display = "none"
 
 
                 const cause_answer = causes_answers[parseInt(ele.dataset.q.split("q")[1]) - 1][ele.dataset.q]
@@ -283,7 +314,8 @@ answers_array.forEach((ele)=>{
 
 
 
-                const choose_btns_array = Array.from(choose_btns.children);
+               
+
                 choose_btns_array.forEach((btn)=>{
                     btn.addEventListener("click",()=>{
                         
@@ -313,9 +345,11 @@ answers_array.forEach((ele)=>{
 
                             card.style.display = "flex";
                             card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                            
                             <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(correct_imgs)}" alt=""></div>
-                            <div style="flex:2" class="right"><span class="green">${getRandomWord(right_words)}</span> Correct answer.</div>`
-            
+                            <div style="flex:2" class="right"><span class="green">${getRandomWord(right_words)}</span> <br/> Correct answer.</div>
+                            
+                            `
 
                             document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
 
@@ -338,8 +372,8 @@ answers_array.forEach((ele)=>{
                             
                             card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                             <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(correct_imgs)}" alt=""></div>
-                            <div style="flex:3" class="right"><span class="green">${getRandomWord(right_words)} Correct answer.</span> ${cause_answer}</div>`
-
+                            <div style="flex:3" class="right"><span class="green">${getRandomWord(right_words)}  Correct answer.</span> <br/> ${cause_answer}</div>`
+            
                             document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
 
                             
@@ -379,12 +413,8 @@ answers_array.forEach((ele)=>{
                    
                     card.innerHTML = ` 
                     <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(again_imgs)}" alt=""></div>
-                    <div class="try_again orange" style="flex:2">Please, Select the feedback of your choice</div>`
+                    <div class="try_again orange" style="flex:2">${getRandomWord(TryAgain_words)}</div>`
                     element.remove();
-
-                    choose_btns.style = "flex"
-
-                    card.appendChild(choose_btns)
 
                     const all_answers = Array.from(document.querySelectorAll(".answer"))
                     all_answers.forEach((ele)=>{
@@ -398,8 +428,36 @@ answers_array.forEach((ele)=>{
                     
                     
                     if(card.children[1].classList.contains("try_again")){
+
+                        const choose_btns_array = Array.from(choose_btns.children);
+                        const wrapper = document.createElement("div");
+                        wrapper.className = "choose_btns btn_cont"
+        
+        
+        
+                        choose_btns_array.forEach((ele)=>{
+                            wrapper.appendChild(ele);
+        
+                        })
+        
+                        choose_btns.appendChild(wrapper)
+        
                         
+                        const txt = document.createElement("div");
+                        txt.className = " bold"
+                        txt.style.fontSize = "18px"
+                        txt.textContent = "Please, Select the feedback of your choice"
+                        const br = document.createElement("br");
+                        choose_btns.prepend(br)
+                        choose_btns.prepend(txt)
+        
+        
+        
+        
+        
                         choose_btns.style.display = "flex"
+        
+                        card.style.display = "none"
                         const all_answers = Array.from(document.querySelectorAll(".answer"))
 
 
@@ -416,7 +474,7 @@ answers_array.forEach((ele)=>{
                         const wrong_long = wrong_long_words[random_index]
 
 
-                        const choose_btns_array = Array.from(choose_btns.children);
+
                         choose_btns_array.forEach((btn)=>{
                             btn.addEventListener("click",()=>{
                                 const audio = new Audio() 
@@ -446,8 +504,8 @@ answers_array.forEach((ele)=>{
                                     card.style.display = "flex";
                                     card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                                     <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
-                                    <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span> <span class="blue">"${right_ans}"</span> </div>`
-        
+                                    <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span>  <span class="black">${wrong_long}</span> <br/> The correct answer is  <span class="blue">"${right_ans}"</span> </div>`
+                
                                     document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
 
                 
@@ -469,7 +527,7 @@ answers_array.forEach((ele)=>{
                         
                                     card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                                     <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
-                                    <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span> <span class="blue">"${right_ans}"</span> ${cause_answer} </div>`
+                                    <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span>   <span class="blue">"${right_ans}"</span> <br/>  ${cause_answer} </div>`
                 
                                     document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
 

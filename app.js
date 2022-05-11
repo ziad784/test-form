@@ -61,10 +61,10 @@ const wrong_short_words = [
     
 ]
 const wrong_long_words = [
-    "Your answer is wrong. The correct answer is",
-    "This is not the right answer. The correct answer is",
-    "Incorrect answer. The correct answer is",
-    "The correct answer is",
+    "Your answer is wrong. ",
+    "This is not the right answer. ",
+    "Incorrect answer.",
+
     
 ]
 
@@ -122,6 +122,9 @@ let page = 1;
 
 function RenderPage(){
     const count = page * 4
+    if(page < 5 || page == 0){
+        next_btn.style.display = "block"
+    }
     const questions = Array.from(document.querySelector(".questions").children)
     questions.forEach((ele)=>{
         ele.style.display = "none"
@@ -195,12 +198,14 @@ back_btn.addEventListener("click",()=>{
     
     
         page -= 1 
-        console.log(page);
+
         document.querySelector(".body").scrollTop = 0
         RenderPage()
         if(page == 1){
             back_btn.style.display = "none"
         }
+
+        
     
 
     
@@ -254,8 +259,11 @@ answers_array.forEach((ele)=>{
                 
                 card.style.display = "flex";
                 card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                
                 <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(correct_imgs)}" alt=""></div>
-                <div style="flex:2" class="right"><span class="green">${getRandomWord(right_words)}</span> Correct answer.</div>`
+                <div style="flex:2" class="right"><span class="green">${getRandomWord(right_words)}</span> <br/> Correct answer.</div>
+                
+                `
 
                 document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
                 q_array.forEach((radio)=>{
@@ -324,7 +332,7 @@ answers_array.forEach((ele)=>{
                         card.style.display = "flex";
                         card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                         <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
-                        <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span> <span class="blue">"${right_ans}"</span> </div>`
+                        <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span>  <span class="black">${wrong_long}</span> <br/> The correct answer is  <span class="blue">"${right_ans}"</span> </div>`
     
                         document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
                         q_array.forEach((radio)=>{

@@ -119,9 +119,11 @@ const back_btn = document.getElementById("back_btn");
 
 
 let page = 1;
-
 function RenderPage(){
     const count = page * 4
+    if(page < 5 || page == 0){
+        next_btn.style.display = "block"
+    }
     const questions = Array.from(document.querySelector(".questions").children)
     questions.forEach((ele)=>{
         ele.style.display = "none"
@@ -133,6 +135,7 @@ function RenderPage(){
         
     }
 }
+
 
 
 window.onload = RenderPage
@@ -254,9 +257,11 @@ answers_array.forEach((ele)=>{
                 
                 card.style.display = "flex";
                 card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                
                 <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(correct_imgs)}" alt=""></div>
-                <div style="flex:2" class="right"><span class="green">${getRandomWord(right_words)}</span> Correct answer.</div>`
-
+                <div style="flex:2" class="right"><span class="green">${getRandomWord(right_words)}</span> <br/> Correct answer.</div>
+                
+                `
                 document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
                 q_array.forEach((radio)=>{
                     radio.children[0].disabled = true
@@ -324,7 +329,7 @@ answers_array.forEach((ele)=>{
                         card.style.display = "flex";
                         card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                         <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
-                        <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span> <span class="blue">"${right_ans}"</span> </div>`
+                        <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span>  <span class="black">${wrong_long}</span> <br/> The correct answer is  <span class="blue">"${right_ans}"</span> </div>`
     
                         document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
                         q_array.forEach((radio)=>{
