@@ -2,7 +2,23 @@ const answers = [
     {"q1":"All"},
     {"q2":"keep away"},
     {"q3":"Worry"},
-    {"q4":"Anxiety"}
+    {"q4":"Anxiety"},
+    {"q5":"Tips for dealing with stress"},
+    {"q6":"Relax and stop worrying"},
+    {"q7":"A magazine about human health"},
+    {"q8":"Stress"},
+    {"q9":"Travel more"},
+    {"q10":"A fact"},
+    {"q11":"Stressful person"},
+    {"q12":"Solve it by taking easy steps"},
+    {"q13":"Wake up and greet the day"},
+    {"q14":"Good, happy, constructive"},
+    {"q15":"Sad"},
+    {"q16":"Control your response to stress"},
+    {"q17":"Tips for dealing with stress"},
+    {"q18":"People"},
+    {"q19":"He would eat and sleep well"},
+    {"q20":"Too much stress = Affected health in a bad way"},
 ]
 
 const right_words = [
@@ -97,6 +113,101 @@ const wrong_sounds = [
 
 ]
 
+const next_btn = document.getElementById("next_btn");
+const back_btn = document.getElementById("back_btn");
+
+
+
+let page = 1;
+
+function RenderPage(){
+    const count = page * 4
+    const questions = Array.from(document.querySelector(".questions").children)
+    questions.forEach((ele)=>{
+        ele.style.display = "none"
+    })
+    for (let i = count - 4; i < count; i++) {
+        const element = questions[i];
+   
+        element.style.display = "block"
+        
+    }
+}
+
+
+window.onload = RenderPage
+
+
+function Validation(){
+    const count = page * 4
+    const questions = Array.from(document.querySelector(".questions").children)
+    let isvalid = true;
+
+    for (let i = count - 4; i < count; i++) {
+        const element = questions[i];
+   
+        const q_num = element.children[1].dataset.q
+        
+        if(document.querySelector(`input[name="${q_num}"]:checked`) == null){
+
+            isvalid = false;
+            const err = document.createElement("div")
+            err.className = `err err_${q_num}`;
+            err.innerHTML = `
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <div>Please, answer all questions before continuing.</div>
+            
+            `
+
+            if(!element.children[element.children.length - 1].classList.contains("err")){
+                element.appendChild(err);
+            }
+
+        } 
+
+    }
+
+
+    return isvalid;
+    
+}
+
+
+
+next_btn.addEventListener("click",()=>{
+    if(Validation()){
+        if(page + 1 <= 5){
+            page = page + 1;
+            document.querySelector(".body").scrollTop = 0
+            RenderPage()
+            back_btn.style.display = "block"
+            if(page == 5){
+                next_btn.style.display = "none"
+            }
+        }
+
+    }
+
+   
+})
+
+back_btn.addEventListener("click",()=>{
+    
+    
+        page -= 1 
+        console.log(page);
+        document.querySelector(".body").scrollTop = 0
+        RenderPage()
+        if(page == 1){
+            back_btn.style.display = "none"
+        }
+    
+
+    
+
+   
+})
+
 
 
 function getRandomWord(words){
@@ -115,6 +226,8 @@ answers_array.forEach((ele)=>{
       
         element.children[0].addEventListener("change",(e)=>{
             const q_num = ele.dataset.q
+
+            document.querySelector(".err_"+q_num)?.remove();
 
             const card = document.getElementById(ele.dataset.q+"_card");
            

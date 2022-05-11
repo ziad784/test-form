@@ -65,12 +65,12 @@ label{
     margin-top: 20px;
     gap: 10px;
     
-    justify-items: center;
+    
 }
 
 .answers_grid > div{
     
-   width: 120px;
+   min-width: 120px;
 }
 
 
@@ -97,7 +97,8 @@ form{
 
 .btn_cont{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    flex-direction: row-reverse;
 }
 
 .btn_cont > button{
@@ -208,6 +209,18 @@ form{
     
 }
 
+
+.err{
+    background-color: #f23a3c;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    color: white;
+    gap: 10px;
+    font-size: 13px;
+    padding: 3px;
+}
 
 @media only screen and (max-width: 1000px) {
     p{
