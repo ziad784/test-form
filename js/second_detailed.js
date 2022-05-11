@@ -280,6 +280,7 @@ answers_array.forEach((ele)=>{
                 audio.play()
                 
                 card.style.display = "flex";
+                card.style.textAlign = "left"
                 card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                 <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(correct_imgs)}" alt=""></div>
                 <div style="flex:2" class="right"><span class="green">${getRandomWord(right_words)} Correct answer.</span> ${cause_answer}</div>`
@@ -314,6 +315,7 @@ answers_array.forEach((ele)=>{
                     audio.src = "sounds/again/again2.mp3"
                     audio.play()
                     card.style.display = "flex";
+                    card.style.textAlign = "center"
                     card.innerHTML = ` 
                     <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(again_imgs)}" alt=""></div>
                     <div class="try_again orange" style="flex:2">${getRandomWord(TryAgain_words)}</div>`
@@ -351,6 +353,7 @@ answers_array.forEach((ele)=>{
                         audio.play()
                         
                         card.style.display = "flex";
+                        card.style.textAlign = "left"
                         card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                         <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
                         <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span> <span class="blue">"${right_ans}"</span> ${cause_answer} </div>`
