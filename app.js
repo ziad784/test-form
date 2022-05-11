@@ -61,7 +61,7 @@ const correct_imgs = [
 
 const again_imgs = [
     "imgs/again/again1.gif",
-    "imgs/again/again2.gif",
+    "imgs/again/again2.png",
     "imgs/again/again3.gif"
 ]
 
@@ -125,7 +125,12 @@ answers_array.forEach((ele)=>{
                 const all_answers = Array.from(document.querySelectorAll(".answer"))
                 all_answers.forEach((ele)=>{
                     
-                    ele.children[0].disabled = false
+                    if(!ele.children[0].classList.contains("none_editable")){
+                        ele.children[0].disabled = false
+                    }
+                    
+                    
+                   
                 
             })
 
@@ -142,7 +147,9 @@ answers_array.forEach((ele)=>{
                 document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
                 q_array.forEach((radio)=>{
                     radio.children[0].disabled = true
+                    radio.children[0].classList.add("none_editable")
                 })
+                console.log(q_array);
 
                 const x_marks = Array.from(document.querySelectorAll(".x_mark"))
                 x_marks.forEach((ele)=>{
@@ -187,7 +194,10 @@ answers_array.forEach((ele)=>{
                         const all_answers = Array.from(document.querySelectorAll(".answer"))
                         all_answers.forEach((ele)=>{
                             
+                                                    
+                            if(!ele.children[0].classList.contains("none_editable")){
                                 ele.children[0].disabled = false
+                            }
                             
                         })
 
@@ -206,6 +216,7 @@ answers_array.forEach((ele)=>{
                         document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
                         q_array.forEach((radio)=>{
                             radio.children[0].disabled = true
+                            radio.children[0].classList.add("none_editable")
                         })
     
                         const x_marks = Array.from(document.querySelectorAll(".x_mark"))
