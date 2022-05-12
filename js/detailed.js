@@ -56,10 +56,10 @@ const right_words = [
     "You did it!",
     "That’s good!",
     "Wonderful!",
-    "You got it",
+    "You got it!",
     "I’m Proud of you!",
     "Nice work!",
-    "Keep it up",
+    "Keep it up!",
     "You did very well!"
 ]
 
@@ -85,10 +85,10 @@ const wrong_short_words = [
     
 ]
 const wrong_long_words = [
-    "Your answer is wrong. The correct answer is",
-    "This is not the right answer. The correct answer is",
-    "Incorrect answer. The correct answer is",
-    "The correct answer is",
+    "Your answer is wrong. ",
+    "This is not the right answer. ",
+    "Incorrect answer. ",
+
     
 ]
 
@@ -114,7 +114,6 @@ const wrong_imgs = [
 
 
 const correct_sounds = [
-    "sounds/correct/correct1.mp3",
     "sounds/correct/correct2.mp3",
     "sounds/correct/correct4.mp3",
     "sounds/correct/correct5.mp3",
@@ -274,20 +273,32 @@ answers_array.forEach((ele)=>{
                         ele.children[0].disabled = false
                     }
                     
-                    
-                   
                 
             })
 
 
-                const audio = new Audio() 
-                audio.src = getRandomWord(correct_sounds)
-                audio.play()
+                const audio = new Audio()   
+                const correct_img = getRandomWord(correct_imgs)
+
+                if(correct_img === "imgs/correct/correct1.gif"){
+                    
+                    audio.src = "sounds/correct/correct1.mp3"
+                    setTimeout(() => {
+                        audio.play()
+                    }, 200);
+                    
+                }else{
+                    audio.src = getRandomWord(correct_sounds)
+                    audio.play()
+                }
+
+
+
                 
                 card.style.display = "block";
                 
                 card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
-                <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(correct_imgs)}" alt=""></div>
+                <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${correct_img}" alt=""></div>
                 <div style="flex:3" class="right"><span class="green">${getRandomWord(right_words)}  Correct answer.</span> <br/> ${cause_answer}</div>`
 
                 document.getElementById(ele.dataset.q+"_rating").style.display = "flex"

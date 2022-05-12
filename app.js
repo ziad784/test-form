@@ -90,7 +90,6 @@ const wrong_imgs = [
 
 
 const correct_sounds = [
-    "sounds/correct/correct1.mp3",
     "sounds/correct/correct2.mp3",
     "sounds/correct/correct4.mp3",
     "sounds/correct/correct5.mp3",
@@ -253,14 +252,29 @@ answers_array.forEach((ele)=>{
             })
 
 
-                const audio = new Audio() 
-                audio.src = getRandomWord(correct_sounds)
-                audio.play()
+                const audio = new Audio()   
+                const correct_img = getRandomWord(correct_imgs)
+ 
+                if(correct_img === "imgs/correct/correct1.gif"){
+                    
+                    audio.src = "sounds/correct/correct1.mp3"
+                    setTimeout(() => {
+                        audio.play()
+                    }, 200);
+                    
+                }else{
+                    audio.src = getRandomWord(correct_sounds)
+                    audio.play()
+                }
+
+               
+                
+               
                 
                 card.style.display = "flex";
                 card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                 
-                <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(correct_imgs)}" alt=""></div>
+                <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${correct_img}" alt=""></div>
                 <div style="flex:2" class="right"><span class="green">${getRandomWord(right_words)}</span> <br/> Correct answer.</div>
                 
                 `
@@ -324,7 +338,7 @@ answers_array.forEach((ele)=>{
 
                         const random_index = Math.floor(Math.random() * wrong_short_words.length)
                         const wrong_short = wrong_short_words[random_index];
-                        const wrong_long = wrong_long_words[random_index]
+                        const wrong_long = wrong_long_words[Math.floor(Math.random() * wrong_long_words.length)]
                         const audio = new Audio() 
                         audio.src = getRandomWord(wrong_sounds)
                         audio.play()

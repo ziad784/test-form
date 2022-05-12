@@ -9,30 +9,63 @@
 </head>
 <body>
 
+
+    <style>
+        .box{
+            width: 70vw;
+            padding: 2%;
+            justify-content: center;
+        }
+
+        .x_mark{
+            top: 5%;
+        }
+
+        @media only screen and (max-width: 1000px) {
+
+
+
+    .box{
+        width: 100%;
+        font-size: 15px;
+        padding: 5%;
+        padding-top: 10%;
+      
+    }
+  
+}
+
+
+    </style>
+
+
     <div class="body">
         <div class="cont">
             <h3 class="blue">Read the following text, then choose the correct answers:</h3>
             <center>
-                <img src="imgs/stress.png" alt="stress img">
+                <img src="imgs/talking.jpg" alt="talking img">
             </center>
-            <p>
-                All humans experience stress. It is part of life. The response to stress is what often needs to be controlled. A person’s feelings, attitude, and outlook on life affect his or her ability to deal with stress. Here are some tips for dealing with stress:
-            </p>
+            
+            <p><span class="bold ">Faisal</span>:  Would you like me to order something else for you?</p>
+            
+            <p><span class="bold blue">Ibrahim</span>:  No thanks. I like the place and their coffee.</p>
 
-            <p>You should avoid unnecessary worry. Thinking about a problem in order to arrive at a solution can be positive, but constant worry is not constructive,  <span style="font-weight: bold;text-decoration: underline;">it</span> usually just makes situations more stressful. So, better to keep away from it.</p>
-       
+            <p><span class="bold">Faisal</span>:  yes It’s cool. So do you have any regrets about things in your life?</p>
 
-            <p>Read and listen to the Qur’an. It will help refresh your heart and mind. Remember that prayer and patience can combat stress and anxiety.</p>
-            
-            
-            
-            <p>Be thankful for what you have and start each day on a positive note. Remember that each day is a gift. Thank Almighty for the gift of life and greet the day with optimism and gratitude. Remember that you are not alone.</p>
-       
-          
-            <p>Become better organized. Plan activities a step at a time so that parts are accomplished. This gives you more self-esteem and more reasonable deadlines. You should be aware of the symptoms of stress. Some symptoms are: moodiness; insomnia or other sleeping disorders; lowered body resistance to colds, flu, or other diseases; preoccupation with negative/angry thoughts or feelings; unusual behavior patterns; loss of appetite, or eating disorders such as anorexia or bulimia.</p>
-            
-            
-            <p>When you know you have a problem with stress, try to solve it one step at a time. Part of the problem could be trying to do too much at once. You should take it in easy stages.</p>
+            <p><span class="bold blue">Ibrahim</span>:  You mean, things I should or shouldn’t have done? Yeah. I guess there are a few I feel sorry about. How about you?</p>
+
+            <p><span class="bold">Faisal</span>:  I wish I had done things differently. I missed some good opportunities because I was too immature. I should have listened to my parents. <span style="font-weight: bold;text-decoration: underline;">They</span> wanted me to go to college, and I actually had the grades, but I wanted to go get a job and go out into the world.</p>
+
+            <p><span class="bold blue">Ibrahim</span>:  Well, I guess you did very well for yourself. You have your own business, and you don’t have a boss.</p>
+
+            <p><span class="bold">Faisal</span>:  But I have lots of responsibilities. I wish I’d taken a course in business management. Now I have to employ someone to do the work I could probably be doing.</p>
+
+            <p><span class="bold blue">Ibrahim</span>:  You know!, it’s never too late. Life is full of chances. You can still go back to school. As for me, I got my master’s degree, and I had my mind set on a career. In the same time, I got  married and had children.</p>
+
+            <p><span class="bold">Faisal</span>:  Great! You are right. We still can do things we love to do as long as we are still alive.</p>
+
+            <p><span class="bold blue">Ibrahim</span>:  yes we can. Don’t waste time regretting over missed opportunities. Be positive  and start making new ones.</p>
+
 
 
             <form onsubmit="return false">
@@ -40,23 +73,23 @@
 
                                     
                 <div class="question">
-                    <h3>1- …. humans experience stress.</h3>
+                    <h3>1- Faisal missed some good ….</h3>
                     <div class="answers_grid answers" data-q="q1">
                         <div class="answer q1">
-                            <input type="radio" name="q1"  value="Some">
-                            <label >Some</label>
+                            <input type="radio" name="q1"  value=" Movies ">
+                            <label > Movies </label>
                         </div>
                         <div class="answer q1">
-                            <input type="radio" name="q1" value="All">
-                            <label >All</label>
+                            <input type="radio" name="q1" value=" Opportunities ">
+                            <label > Opportunities </label>
                         </div>
                         <div class="answer q1">
-                            <input type="radio" name="q1" value="Rare">
-                            <label >Rare</label>
+                            <input type="radio" name="q1" value=" Fun ">
+                            <label > Fun </label>
                         </div>
                         <div class="answer q1">
-                            <input type="radio" name="q1" value="No">
-                            <label >No</label>
+                            <input type="radio" name="q1" value=" Meetings ">
+                            <label > Meetings </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -79,28 +112,35 @@
 
                     </div>
 
+                    <div class="rounded_box" id="q1_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
 
 
                 </div>
                 
                 <div class="question">
-                    <h3>2- The verb “ avoid” means ……   </h3>
+                    <h3>2- The noun “regret” means ……    </h3>
                     <div class="answers_grid answers" data-q="q2">
                         <div class="answer q2">
-                            <input type="radio" name="q2"  value="keep away">
-                            <label > keep away </label>
+                            <input type="radio" name="q2"  value=" Feeling sorry ">
+                            <label >  Feeling sorry  </label>
                         </div>
                         <div class="answer q2">
-                            <input type="radio" name="q2" value="keep on">
-                            <label >keep on</label>
+                            <input type="radio" name="q2" value=" Feeling well ">
+                            <label > Feeling well </label>
                         </div>
                         <div class="answer q2">
-                            <input type="radio" name="q2" value="keep with">
-                            <label > keep with </label>
+                            <input type="radio" name="q2" value=" Feeling happy ">
+                            <label >  Feeling happy  </label>
                         </div>
                         <div class="answer q2">
-                            <input type="radio" name="q2" value="keep up">
-                            <label >keep up</label>
+                            <input type="radio" name="q2" value=" Feeling okay ">
+                            <label > Feeling okay </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -111,7 +151,6 @@
                     </div>
                     <div class="ratings" id="q2_rating" style="display: none;">
 
-
                         <div data-q="q2" class="rating hov_red"><i class="fa-solid fa-face-angry"></i>  <div>Poor</div> </div>
                         <div data-q="q2" class="rating hov_orange"><i class="fa-solid fa-face-frown"></i> <div>Not bad</div> </div>
                         <div data-q="q2" class="rating hov_yellow"><i class="fa-solid fa-face-meh"></i> <div>Ok</div> </div>
@@ -120,26 +159,33 @@
 
                     </div>
 
+                    <div class="rounded_box" id="q2_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
                 </div>
                 
                 <div class="question">
-                    <h3>3- The underlined pronoun “ it” in paragraph 2 refers to ….   </h3>
+                    <h3>3- The underlined pronoun “ they” refers to …..   </h3>
                     <div class="answers_grid answers" data-q="q3">
                         <div class="answer q3">
-                            <input type="radio" name="q3"  value="Positive">
-                            <label > Positive </label>
+                            <input type="radio" name="q3"  value=" Faisal’s chances ">
+                            <label >  Faisal’s chances  </label>
                         </div>
                         <div class="answer q3">
-                            <input type="radio" name="q3" value="life">
-                            <label > life </label>
+                            <input type="radio" name="q3" value=" Faisal’s friends ">
+                            <label >  Faisal’s friends  </label>
                         </div>
                         <div class="answer q3">
-                            <input type="radio" name="q3" value="Worry">
-                            <label > Worry </label>
+                            <input type="radio" name="q3" value=" Faisal’s parents ">
+                            <label >  Faisal’s parents  </label>
                         </div>
                         <div class="answer q3">
-                            <input type="radio" name="q3" value="Problem">
-                            <label > Problem </label>
+                            <input type="radio" name="q3" value=" Faisal’s employees ">
+                            <label >  Faisal’s employees  </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -157,26 +203,34 @@
                         <div data-q="q3" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+                    <div class="rounded_box" id="q3_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
                 </div>
                 
                 <div class="question">
-                    <h3>4- The synonym of “ stress “ is …..  </h3>
+                    <h3>4- The synonymous of “ good chance “ is …..  </h3>
                     <div class="answers_grid answers" data-q="q4">
                         <div class="answer q4">
-                            <input type="radio" name="q4"  value="Relaxing">
-                            <label >  Relaxing  </label>
+                            <input type="radio" name="q4"  value=" No opportunity ">
+                            <label >   No opportunity   </label>
                         </div>
                         <div class="answer q4">
-                            <input type="radio" name="q4" value="Anxiety">
-                            <label >  Anxiety  </label>
+                            <input type="radio" name="q4" value=" Opportunity ">
+                            <label >   Opportunity   </label>
                         </div>
                         <div class="answer q4">
-                            <input type="radio" name="q4" value="Goal">
-                            <label >  Goal  </label>
+                            <input type="radio" name="q4" value=" Little opportunity ">
+                            <label >   Little opportunity   </label>
                         </div>
                         <div class="answer q4">
-                            <input type="radio" name="q4" value="Cause">
-                            <label >  Cause  </label>
+                            <input type="radio" name="q4" value=" No possibility ">
+                            <label >   No possibility   </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -196,26 +250,37 @@
                         <div data-q="q4" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+
+                    
+                    <div class="rounded_box" id="q4_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
                 
                 <div class="question">
-                    <h3>5- The main idea of the passage is ………  </h3>
+                    <h3>5- The main idea of the conversation is ……… </h3>
                     <div class="answers_grid answers" data-q="q5">
                         <div class="answer q5">
-                            <input type="radio" name="q5"  value=" Being thankful for what you have. ">
-                            <label >   Being thankful for what you have.   </label>
+                            <input type="radio" name="q5"  value=" Feeling sorry about missed chances ">
+                            <label >  Feeling sorry about missed chances.   </label>
                         </div>
                         <div class="answer q5">
-                            <input type="radio" name="q5" value=" Thinking about a problem. ">
-                            <label >   Thinking about a problem.   </label>
+                            <input type="radio" name="q5" value=" Having a job is the only chance ">
+                            <label >    Having a job is the only chance. </label>
                         </div>
                         <div class="answer q5">
-                            <input type="radio" name="q5" value=" Planning activities. ">
-                            <label >   Planning activities.   </label>
+                            <input type="radio" name="q5" value=" Studying at college is the only chance ">
+                            <label >   Studying at college is the only chance.  </label>
                         </div>
                         <div class="answer q5">
-                            <input type="radio" name="q5" value="Tips for dealing with stress">
-                            <label > Tips for dealing with stress </label>
+                            <input type="radio" name="q5" value=" Don’t waste time regretting over missed chances ">
+                            <label >  Don’t waste time regretting over missed chances.  </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -235,26 +300,37 @@
                         <div data-q="q5" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+
+                    
+                    <div class="rounded_box" id="q5_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
                 
                 <div class="question">
-                    <h3>6- What does the expression “ refresh your mind and heart” mean in this passage?  </h3>
+                    <h3>6- The phrase “ my mind set on a carrier” means I …… .to work.  </h3>
                     <div class="answers_grid answers" data-q="q6">
                         <div class="answer q6">
-                            <input type="radio" name="q6"  value="Stress out and keep worrying.">
-                            <label >   Stress out and keep worrying.   </label>
+                            <input type="radio" name="q6"  value=" Didn’t decide yet. ">
+                            <label >   Didn’t decide yet.   </label>
                         </div>
                         <div class="answer q6">
-                            <input type="radio" name="q6" value="Relax and stop worrying">
-                            <label >   Relax and stop worrying   </label>
+                            <input type="radio" name="q6" value=" Decided ">
+                            <label >   Decided   </label>
                         </div>
                         <div class="answer q6">
-                            <input type="radio" name="q6" value="Think too much and worrying">
-                            <label >   Think too much and worrying   </label>
+                            <input type="radio" name="q6" value=" Never decided ">
+                            <label >   Never decided   </label>
                         </div>
                         <div class="answer q6">
-                            <input type="radio" name="q6" value="Keep on worrying">
-                            <label >   Keep on worrying   </label>
+                            <input type="radio" name="q6" value=" Not decided ">
+                            <label >   Not decided   </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -274,26 +350,36 @@
                         <div data-q="q6" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+                    
+                    <div class="rounded_box" id="q6_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
                 
                 <div class="question">
-                    <h3>7- This passage can be found on ………..   </h3>
+                    <h3>7- This conversation between Faisal and Ibrahim took place in the………  </h3>
                     <div class="answers_grid answers" data-q="q7">
                         <div class="answer q7">
-                            <input type="radio" name="q7"  value="A magazine about human health">
-                            <label >   A magazine about human health   </label>
+                            <input type="radio" name="q7"  value=" Coffee shop ">
+                            <label >  Coffee shop  </label>
                         </div>
                         <div class="answer q7">
-                            <input type="radio" name="q7" value="A report about new schools">
-                            <label >   A report about new schools.   </label>
+                            <input type="radio" name="q7" value=" Pharmacy. ">
+                            <label >  Pharmacy.  </label>
                         </div>
                         <div class="answer q7">
-                            <input type="radio" name="q7" value="A newspaper related to healthy food">
-                            <label >   A newspaper related to healthy food.   </label>
+                            <input type="radio" name="q7" value=" Supermarket. ">
+                            <label >   Supermarket.   </label>
                         </div>
                         <div class="answer q7">
-                            <input type="radio" name="q7" value="An advertisement for a movie">
-                            <label >   An advertisement for a movie.   </label>
+                            <input type="radio" name="q7" value=" Street. ">
+                            <label >  Street.   </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -313,27 +399,38 @@
                         <div data-q="q7" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+
+                    
+                    <div class="rounded_box" id="q7_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
 
 
                 <div class="question">
-                    <h3>8- Thinking too much and constant worrying may cause ….   </h3>
+                    <h3>8- Faisal missed some good opportunities because he was too......  </h3>
                     <div class="answers_grid answers" data-q="q8">
                         <div class="answer q8">
-                            <input type="radio" name="q8"  value="Relaxing">
-                            <label >  Relaxing  </label>
+                            <input type="radio" name="q8"  value=" Busy ">
+                            <label >   Busy   </label>
                         </div>
                         <div class="answer q8">
-                            <input type="radio" name="q8" value="Good life">
-                            <label >   Good life   </label>
+                            <input type="radio" name="q8" value=" Mature ">
+                            <label >   Mature   </label>
                         </div>
                         <div class="answer q8">
-                            <input type="radio" name="q8" value="Stress">
-                            <label >   Stress   </label>
+                            <input type="radio" name="q8" value=" Immature ">
+                            <label >   Immature    </label>
                         </div>
                         <div class="answer q8">
-                            <input type="radio" name="q8" value="Good health">
-                            <label > Good health  </label>
+                            <input type="radio" name="q8" value=" Smart ">
+                            <label > Smart </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -353,29 +450,39 @@
                         <div data-q="q8" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+                    
+                    <div class="rounded_box" id="q8_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
 
 
 
                                 
                 <div class="question">
-                    <h3>9- All of the following ideas are related to the passage, except ......  </h3>
+                    <h3>9- All of the following ideas are related to the conversation, except ..... </h3>
                     <div class="answers_grid answers" data-q="q9">
                         <div class="answer q9">
-                            <input type="radio" name="q9"  value="Be better organized">
-                            <label >   Be better organized   </label>
+                            <input type="radio" name="q9"  value=" Studying at college ">
+                            <label >  Studying at college   </label>
                         </div>
                         <div class="answer q9">
-                            <input type="radio" name="q9" value="Travel more">
-                            <label >   Travel more   </label>
+                            <input type="radio" name="q9" value=" Bad grades ">
+                            <label >    Bad grades   </label>
                         </div>
                         <div class="answer q9">
-                            <input type="radio" name="q9" value="Be thankful for what you have">
-                            <label >   Be thankful for what you have   </label>
+                            <input type="radio" name="q9" value=" Taking management business course ">
+                            <label >  Taking management business course   </label>
                         </div>
                         <div class="answer q9">
-                            <input type="radio" name="q9" value="Read and listen to Quran">
-                            <label >   Read and listen to Quran   </label>
+                            <input type="radio" name="q9" value=" Having a job ">
+                            <label >   Having a job   </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -395,20 +502,31 @@
                         <div data-q="q9" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+
+                    
+                    <div class="rounded_box" id="q9_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
 
 
 
                                 
                 <div class="question">
-                    <h3>10- This statement from the passage <span class="bold underline">“All humans experience stress. It is a necessary part of life”</span> represents …..   </h3>
+                    <h3>10- This statement from the conversation <span class="underline">“ Well, I guess you did very well for yourself. You have your own business, and you don’t have a boss breathing down your neck”</span> represents …..   </h3>
                     <div class="answers_grid answers" data-q="q10">
                         <div class="answer q10">
                             <input type="radio" name="q10"  value="A fact">
                             <label >   A fact   </label>
                         </div>
                         <div class="answer q10">
-                            <input type="radio" name="q10" value="An opinion">
+                            <input type="radio" name="q10" value=" An opinion ">
                             <label >  An opinion  </label>
                         </div>
                         <div class="answer q10">
@@ -437,29 +555,40 @@
                         <div data-q="q10" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+
+                    
+                    <div class="rounded_box" id="q10_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
 
 
 
                                 
                 <div class="question">
-                    <h3>11- Moodiness, insomnia or other sleeping disorders are symptoms of …….  </h3>
+                    <h3>11- Ibrahim was ……. by telling Faisal It’s never too late to go back to school.  </h3>
                     <div class="answers_grid answers" data-q="q11">
                         <div class="answer q11">
-                            <input type="radio" name="q11"  value="Happy person">
-                            <label >   Happy person   </label>
+                            <input type="radio" name="q11"  value=" Wrong ">
+                            <label >   Wrong  </label>
                         </div>
                         <div class="answer q11">
-                            <input type="radio" name="q11" value="Stressful person">
-                            <label >   Stressful person   </label>
+                            <input type="radio" name="q11" value=" Right ">
+                            <label >   Right   </label>
                         </div>
                         <div class="answer q11">
-                            <input type="radio" name="q11" value="Organized Person">
-                            <label >  Organized Person  </label>
+                            <input type="radio" name="q11" value=" Stupid ">
+                            <label >  Stupid  </label>
                         </div>
                         <div class="answer q11">
-                            <input type="radio" name="q11" value="Healthy person">
-                            <label >   Healthy person   </label>
+                            <input type="radio" name="q11" value=" Crazy ">
+                            <label >   Crazy   </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -477,30 +606,42 @@
                         <div data-q="q11" class="rating hov_yellow"><i class="fa-solid fa-face-meh"></i> <div>Ok</div> </div>
                         <div data-q="q11" class="rating hov_lightgreen"><i class="fa-solid fa-face-smile"></i> <div>Very good</div> </div>
                         <div data-q="q11" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
+
                     </div>
+
+
+                    
+                    <div class="rounded_box" id="q11_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
 
 
 
                                 
                 <div class="question">
-                    <h3>12- All of the following behaviors are not acceptable while having a problem with stress, except ……  </h3>
+                    <h3>12- All of the following behaviors are acceptable in case you missed an opportunity, except ……. </h3>
                     <div class="answers_grid answers" data-q="q12">
                         <div class="answer q12">
-                            <input type="radio" name="q12"  value="Solve it by constant worry">
-                            <label >   Solve it by constant worry   </label>
+                            <input type="radio" name="q12"  value=" Trying again ">
+                            <label >   Trying again   </label>
                         </div>
                         <div class="answer q12">
-                            <input type="radio" name="q12" value="Solve it by thinking too much">
-                            <label >   Solve it by thinking too much   </label>
+                            <input type="radio" name="q12" value=" Being positive ">
+                            <label >   Being positive   </label>
                         </div>
                         <div class="answer q12">
-                            <input type="radio" name="q12" value="Solve it by taking easy steps">
-                            <label >   Solve it by taking easy steps   </label>
+                            <input type="radio" name="q12" value=" Being negative ">
+                            <label >   Being negative   </label>
                         </div>
                         <div class="answer q12">
-                            <input type="radio" name="q12" value="Solve it by doing too much at once">
-                            <label >   Solve it by doing too much at once   </label>
+                            <input type="radio" name="q12" value=" Making new opportunities ">
+                            <label >   Making new opportunities   </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -520,6 +661,17 @@
                         <div data-q="q12" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+
+                    
+                    <div class="rounded_box" id="q12_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
 
 
@@ -529,20 +681,20 @@
                     <h3>13- Which one of the following sentences include an idiomatic expression?  </h3>
                     <div class="answers_grid answers" data-q="q13">
                         <div class="answer q13">
-                            <input type="radio" name="q13"  value="Wake up and stop worrying">
-                            <label >   Wake up and stop worrying   </label>
+                            <input type="radio" name="q13"  value=" I want to go to college ">
+                            <label >   I want to go to college  </label>
                         </div>
                         <div class="answer q13">
-                            <input type="radio" name="q13" value="Wake up and greet the day">
-                            <label >   Wake up and greet the day   </label>
+                            <input type="radio" name="q13" value=" I want to go out into the world ">
+                            <label >  I want to go out into the world   </label>
                         </div>
                         <div class="answer q13">
-                            <input type="radio" name="q13" value="Wake up and be more organized">
-                            <label >   Wake up and be more organized   </label>
+                            <input type="radio" name="q13" value=" I want to take management business course ">
+                            <label >  I want to take management business course   </label>
                         </div>
                         <div class="answer q13">
-                            <input type="radio" name="q13" value="Wake up and solve your problems">
-                            <label >   Wake up and solve your problems   </label>
+                            <input type="radio" name="q13" value=" I want to get a job ">
+                            <label > I want to get a job   </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -562,6 +714,17 @@
                         <div data-q="q13" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+
+                    
+                    <div class="rounded_box" id="q13_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
 
 
@@ -569,23 +732,23 @@
 
                                 
                 <div class="question">
-                    <h3>14- The word “ positive” belongs to which of the following word groups?  </h3>
+                    <h3>14- The word “ probably” belongs to which of the following word groups?  </h3>
                     <div class="answers_grid answers" data-q="q14">
                         <div class="answer q14">
-                            <input type="radio" name="q14"  value="Good, happy, constructive">
-                            <label >   Good, happy, constructive   </label>
+                            <input type="radio" name="q14"  value=" Maybe, possibly, perhaps ">
+                            <label >   Maybe, possibly, perhaps   </label>
                         </div>
                         <div class="answer q14">
-                            <input type="radio" name="q14" value="Moody, angry, negative">
-                            <label >   Moody, angry, negative   </label>
+                            <input type="radio" name="q14" value=" Not possibly, not likely, not supposedly ">
+                            <label >   Not possibly, not likely, not supposedly  </label>
                         </div>
                         <div class="answer q14">
-                            <input type="radio" name="q14" value="Wrong, not constructive, not okay">
-                            <label >   Wrong, not constructive, not okay   </label>
+                            <input type="radio" name="q14" value=" Agree, accept, okay ">
+                            <label >   Agree, accept, okay   </label>
                         </div>
                         <div class="answer q14">
-                            <input type="radio" name="q14" value="Stress, anxiety, worry">
-                            <label >   Stress, anxiety, worry   </label>
+                            <input type="radio" name="q14" value=" Correct, true, right ">
+                            <label >   Correct, true, right  </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -605,29 +768,40 @@
                         <div data-q="q14" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+
+                    
+                    <div class="rounded_box" id="q14_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
 
 
 
                                 
                 <div class="question">
-                    <h3>15- By this statement <span class="bold underline">“ Stress lowered body resistance to colds, flu, or other diseases “</span>, the writer shows …… fact</h3>
+                    <h3>15- This statement <span class="underline">“ You know!, it’s never too late. Life is full of chances. “</span> shows that Ibrahim has a …… attitude about life.</h3>
                     <div class="answers_grid answers" data-q="q15">
                         <div class="answer q15">
-                            <input type="radio" name="q15"  value="Sad">
+                            <input type="radio" name="q15"  value=" positive ">
+                            <label >    positive    </label>
+                        </div>
+                        <div class="answer q15">
+                            <input type="radio" name="q15" value=" Negative ">
+                            <label >   Negative   </label>
+                        </div>
+                        <div class="answer q15">
+                            <input type="radio" name="q15" value=" Sad ">
                             <label >   Sad   </label>
                         </div>
                         <div class="answer q15">
-                            <input type="radio" name="q15" value="Happy">
-                            <label >  Happy  </label>
-                        </div>
-                        <div class="answer q15">
-                            <input type="radio" name="q15" value="Great">
-                            <label >  Great  </label>
-                        </div>
-                        <div class="answer q15">
-                            <input type="radio" name="q15" value="Nice">
-                            <label >  Nice  </label>
+                            <input type="radio" name="q15" value=" Angry ">
+                            <label >   Angry   </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -647,29 +821,40 @@
                         <div data-q="q15" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+
+                    
+                    <div class="rounded_box" id="q15_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
 
 
 
                                 
                 <div class="question">
-                    <h3>16- Which of the following statements best summarizes the passage?</h3>
+                    <h3>16- Which of the following statements best summarizes the conversation?</h3>
                     <div class="answers_grid answers" data-q="q16">
                         <div class="answer q16">
-                            <input type="radio" name="q16"  value="Wake up and be more organized">
-                            <label >   Wake up and be more organized   </label>
+                            <input type="radio" name="q16"  value=" Faisal and Ibrahim discuss things that should or shouldn’t do in their lives. ">
+                            <label >   Faisal and Ibrahim discuss things that should or shouldn’t do in their lives.  </label>
                         </div>
                         <div class="answer q16">
-                            <input type="radio" name="q16" value="Control your response to stress">
-                            <label >   Control your response to stress.   </label>
+                            <input type="radio" name="q16" value=" It’s never too late to do things you want. ">
+                            <label >   It’s never too late to do things you want.  </label>
                         </div>
                         <div class="answer q16">
-                            <input type="radio" name="q16" value="Be thankful for what you have">
-                            <label >   Be thankful for what you have.   </label>
+                            <input type="radio" name="q16" value=" Always listen to your parents. ">
+                            <label >  Always listen to your parents.  </label>
                         </div>
                         <div class="answer q16">
-                            <input type="radio" name="q16" value="Start each day on a positive note">
-                            <label >   Start each day on a positive note.   </label>
+                            <input type="radio" name="q16" value=" Take a course in business management. ">
+                            <label >    Take a course in business management.   </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -689,28 +874,40 @@
                         <div data-q="q16" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+
+
+                    
+                    <div class="rounded_box" id="q16_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
 
 
                                 
                 <div class="question">
-                    <h3>17- The most suitable title for the passage is ……. </h3>
+                    <h3>17- The most suitable title for the conversation is …….</h3>
                     <div class="answers_grid answers" data-q="q17">
                         <div class="answer q17">
-                            <input type="radio" name="q17"  value="Stress symptoms">
-                            <label >   Stress symptoms   </label>
+                            <input type="radio" name="q17"  value=" Faisal's parents ">
+                            <label >   Faisal's parents  </label>
                         </div>
                         <div class="answer q17">
-                            <input type="radio" name="q17" value="Tips for dealing with stress">
-                            <label >   Tips for dealing with stress   </label>
+                            <input type="radio" name="q17" value=" Wishes and regrets ">
+                            <label >   Wishes and regrets   </label>
                         </div>
                         <div class="answer q17">
-                            <input type="radio" name="q17" value="Stress causes">
-                            <label >   Stress causes   </label>
+                            <input type="radio" name="q17" value=" Ibrahim's job ">
+                            <label >   Ibrahim's job   </label>
                         </div>
                         <div class="answer q17">
-                            <input type="radio" name="q17" value="Stress problems">
-                            <label >   Stress problems   </label>
+                            <input type="radio" name="q17" value=" Good grades ">
+                            <label >  Good grades   </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -730,28 +927,38 @@
                         <div data-q="q17" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+
+                    
+                    <div class="rounded_box" id="q17_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
                 </div>
 
 
                                 
                 <div class="question">
-                    <h3>18- We can reduce stress by educating …….about its symptoms. </h3>
+                    <h3>18- We can reduce wasting time regretting over missed opportunities by …..</h3>
                     <div class="answers_grid answers" data-q="q18">
                         <div class="answer q18">
-                            <input type="radio" name="q18"  value="Problems">
-                            <label >   Problems   </label>
+                            <input type="radio" name="q18"  value=" Being negative ">
+                            <label >    Being negative    </label>
                         </div>
                         <div class="answer q18">
-                            <input type="radio" name="q18" value="Anxiety">
-                            <label >  Anxiety  </label>
+                            <input type="radio" name="q18" value=" Stopping trying ">
+                            <label >   Stopping trying   </label>
                         </div>
                         <div class="answer q18">
-                            <input type="radio" name="q18" value="People">
-                            <label >   People   </label>
+                            <input type="radio" name="q18" value=" Starting making new ones ">
+                            <label >    Starting making new ones    </label>
                         </div>
                         <div class="answer q18">
-                            <input type="radio" name="q18" value="Diseases">
-                            <label >   Diseases   </label>
+                            <input type="radio" name="q18" value=" Feeling sorry about it ">
+                            <label >    Feeling sorry about it    </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -771,28 +978,39 @@
                         <div data-q="q18" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+
+                    
+                    <div class="rounded_box" id="q18_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
 
 
                                 
                 <div class="question">
-                    <h3>19- What would happen if a person control his stress ?</h3>
+                    <h3>19- What would happen if Faisal had taken a course in business management? </h3>
                     <div class="answers_grid answers" data-q="q19">
                         <div class="answer q19">
-                            <input type="radio" name="q19"  value="He would eat and sleep very little">
-                            <label >   He would eat and sleep very little   </label>
+                            <input type="radio" name="q19"  value=" He would have to employ someone else ">
+                            <label >   He would have to employ someone else  </label>
                         </div>
                         <div class="answer q19">
-                            <input type="radio" name="q19" value="He would eat and sleep well">
-                            <label >   He would eat and sleep well   </label>
+                            <input type="radio" name="q19" value=" He could be doing the work himself ">
+                            <label >   He could be doing the work himself   </label>
                         </div>
                         <div class="answer q19">
-                            <input type="radio" name="q19" value="He wouldn’t eat and sleep well">
-                            <label >   He wouldn’t eat and sleep well   </label>
+                            <input type="radio" name="q19" value=" He could be asking Ibrahim to do the work ">
+                            <label >   He could be asking Ibrahim to do the work  </label>
                         </div>
                         <div class="answer q19">
-                            <input type="radio" name="q19" value="He wouldn’t eat and sleep at all">
-                            <label >   He wouldn’t eat and sleep at all   </label>
+                            <input type="radio" name="q19" value=" He would have problems in work ">
+                            <label >  He would have problems in work   </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -812,28 +1030,39 @@
                         <div data-q="q19" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
 
                     </div>
+
+
+                    
+                    <div class="rounded_box" id="q19_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
 
 
                                 
                 <div class="question">
-                    <h3>20- The best conclusion drawn from the passage is .....   </h3>
+                    <h3>20- The best conclusion drawn from the conversation is .....   </h3>
                     <div class="answers_grid answers" data-q="q20">
                         <div class="answer q20">
-                            <input type="radio" name="q20"  value="Too much stress = Affected health in a bad way">
-                            <label >   Too much stress = Affected health in a bad way   </label>
+                            <input type="radio" name="q20"  value=" You still alive = It’s never too late to do things you wish ">
+                            <label >   You still alive = It’s never too late to do things you wish  </label>
                         </div>
                         <div class="answer q20">
-                            <input type="radio" name="q20" value="Too much stress = Wouldn’t affect health in anyway">
-                            <label >   Too much stress = Wouldn’t affect health in anyway   </label>
+                            <input type="radio" name="q20" value=" You still alive = It's not possible to do things you wish ">
+                            <label >   You still alive = It's not possible to do things you wish  </label>
                         </div>
                         <div class="answer q20">
-                            <input type="radio" name="q20" value="Too much stress = Affected health a good way">
-                            <label >   Too much stress = Affected health a good way   </label>
+                            <input type="radio" name="q20" value=" You still alive = It's too late to do things you wish ">
+                            <label >   You still alive = It's too late to do things you wish   </label>
                         </div>
                         <div class="answer q20">
-                            <input type="radio" name="q20" value="Too much stress = Affected health in a positive way">
-                            <label >   Too much stress = Affected health in a positive way   </label>
+                            <input type="radio" name="q20" value=" You still alive = No chance to do things you wish ">
+                            <label >   You still alive = No chance to do things you wish  </label>
                         </div>
                     </div>
                     <div class="btn_cont btn_center  mg-5"  >
@@ -846,21 +1075,27 @@
                     
                     <div class="ratings" id="q20_rating" style="display: none;">
 
+
                         <div data-q="q20" class="rating hov_red"><i class="fa-solid fa-face-angry"></i>  <div>Poor</div> </div>
                         <div data-q="q20" class="rating hov_orange"><i class="fa-solid fa-face-frown"></i> <div>Not bad</div> </div>
                         <div data-q="q20" class="rating hov_yellow"><i class="fa-solid fa-face-meh"></i> <div>Ok</div> </div>
                         <div data-q="q20" class="rating hov_lightgreen"><i class="fa-solid fa-face-smile"></i> <div>Very good</div> </div>
-                        <div data-q="q20" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>
+                        <div data-q="q20" class="rating hov_green"><i class="fa-solid fa-face-grin"></i> <div>Excellent</div> </div>v>
 
                     </div>
+
+
+
+                    
+                    <div class="rounded_box" id="q20_choose" style="display: none;">
+
+                        <button data-type="concise">Concise Feedback</button>
+                        <button data-type="detailed">Detailed Feedback</button>
+
+                    </div>
+
+
                 </div>
-
-
-                
-
-
-
-
 
 
 
@@ -904,10 +1139,7 @@
     </div>
     <script src="https://kit.fontawesome.com/8b8be9ae55.js" crossorigin="anonymous"></script>
 
-    <script src="app.js"></script>
+    <script src="./js/second_selected.js"></script>
     
 </body>
 </html>
-
-
-

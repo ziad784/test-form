@@ -68,6 +68,11 @@ label{
     font-weight: bold;
 }
 
+.underline{
+    text-decoration: underline;
+    text-decoration-color: black;
+}
+
 .answers_grid > div{
     margin-top: 10px;
     
@@ -124,6 +129,11 @@ form{
 
 }
 
+.choose_btns > button{
+    padding: 2%;
+}
+
+
 
 .rounded_box{
     display: flex;
@@ -132,10 +142,10 @@ form{
   
     border: 0.5px solid #24528f;
     border-radius: 15px;
-    padding: 1%;
+    padding: 3%;
     margin-top: 10vh;
     transition: .3s;
-    width: 50vw;
+    width: fit-content;
     margin: auto;
 }
 
@@ -223,10 +233,26 @@ form{
     color: yellow;
 }
 
+.rating{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.rating > div{
+    color: black;
+    font-size: 15px;
+    margin-top: 5px;
+        
+
+}
+
 .ratings{
     display: flex;
     font-size: 35px;
-    gap: 10px;
+    gap: 20px;
     padding: 5px;
     margin-top: 20px;
     color: #24528f;
@@ -237,6 +263,7 @@ form{
 .ratings > div{
     transition: .3s;
     cursor: pointer;
+    min-width: 60px;
     
 }
 

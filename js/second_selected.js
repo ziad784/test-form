@@ -43,7 +43,6 @@ const causes_answers = [
     {"q19":`Because taking business management course, means Faisal will learn how to do the work. So, you can predict/ guess that Faisal can do the work himself and doesn't need to employ someone else to do the work.`},
     {"q20":`Because from reading the whole conversation, you can understand and come out with the result that says: " As long as you still alive, It's never too late to do what you wish".`},
 ]
-
 const right_words = [
     "Well done!",
     "Excellent!",
@@ -85,7 +84,7 @@ const wrong_short_words = [
 ]
 const wrong_long_words = [
     "Your answer is wrong. ",
-    "This is not the right answer.",
+    "This is not the right answer. ",
     "Incorrect answer. ",
     
     
@@ -113,6 +112,7 @@ const wrong_imgs = [
 
 
 const correct_sounds = [
+
     "sounds/correct/correct2.mp3",
     "sounds/correct/correct4.mp3",
     "sounds/correct/correct5.mp3",
@@ -141,7 +141,6 @@ const back_btn = document.getElementById("back_btn");
 
 
 let page = 1;
-
 function RenderPage(){
     const count = page * 4
     if(page < 5 || page == 0){
@@ -251,8 +250,13 @@ answers_array.forEach((ele)=>{
     q_array.forEach((element)=>{
       
         element.children[0].addEventListener("change",(e)=>{
+
+           
             const q_num = ele.dataset.q
 
+            const choose_btns = document.getElementById(q_num+"_choose")
+
+            
             document.querySelector(".err_"+q_num)?.remove();
 
             const card = document.getElementById(ele.dataset.q+"_card");
@@ -263,57 +267,147 @@ answers_array.forEach((ele)=>{
             
             if(right_ans == e.target.value){
 
+                const choose_btns_array = Array.from(choose_btns.children);
+                const wrapper = document.createElement("div");
+                wrapper.className = "choose_btns btn_cont"
+
+
+
+                choose_btns_array.forEach((ele)=>{
+                    wrapper.appendChild(ele);
+
+                })
+
+                choose_btns.appendChild(wrapper)
+
+                
+                const txt = document.createElement("div");
+                txt.className = " bold"
+                txt.style.fontSize = "18px"
+                txt.textContent = "Please, Select the feedback of your choice"
+                const br = document.createElement("br");
+                choose_btns.prepend(br)
+                choose_btns.prepend(txt)
+
+
+
+
+
+                choose_btns.style.display = "flex"
+
+                card.style.display = "none"
+
+
                 const cause_answer = causes_answers[parseInt(ele.dataset.q.split("q")[1]) - 1][ele.dataset.q]
 
                 const all_answers = Array.from(document.querySelectorAll(".answer"))
                 all_answers.forEach((ele)=>{
-                    
-                    if(!ele.children[0].classList.contains("none_editable")){
-                        ele.children[0].disabled = false
+                    if(!ele.classList.contains(q_num)){
+                        ele.children[0].disabled = true
                     }
-                    
-                    
-                   
-                
-            })
+                })
 
-                const audio = new Audio()   
-                const correct_img = getRandomWord(correct_imgs)
-
-                if(correct_img === "imgs/correct/correct1.gif"){
-                    
-                    audio.src = "sounds/correct/correct1.mp3"
-                    setTimeout(() => {
-                        audio.play()
-                    }, 200);
-                    
-                }else{
-                    audio.src = getRandomWord(correct_sounds)
-                    audio.play()
-                }
-                
-                card.style.display = "block";
-                
-                card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
-                <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${correct_img}" alt=""></div>
-                <div style="flex:3" class="right"><span class="green">${getRandomWord(right_words)}  Correct answer.</span> <br/> ${cause_answer}</div>`
-
-                document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
                 q_array.forEach((radio)=>{
+                    console.log(radio);
                     radio.children[0].disabled = true
                     radio.children[0].classList.add("none_editable")
                 })
-                console.log(q_array);
 
-                const x_marks = Array.from(document.querySelectorAll(".x_mark"))
-                x_marks.forEach((ele)=>{
-                    ele.addEventListener("click",()=>{
+
+
+
+
+
+               
+
+                choose_btns_array.forEach((btn)=>{
+                    btn.addEventListener("click",()=>{
+
+                        const audio = new Audio()   
+                        const correct_img = getRandomWord(correct_imgs)
+        
+                        if(correct_img === "imgs/correct/correct1.gif"){
+                            
+                            audio.src = "sounds/correct/correct1.mp3"
+                            setTimeout(() => {
+                                audio.play()
+                            }, 200);
+                            
+                        }else{
+                            audio.src = getRandomWord(correct_sounds)
+                            audio.play()
+                        }
+
+
+
+                        all_answers.forEach((ele)=>{
+                    
+                                            
+                            if(!ele.children[0].classList.contains("none_editable")){
+                                ele.children[0].disabled = false
+                            }
+                            
+                        })
+
+                        const feedback_type = btn.dataset.type;
+                        choose_btns.style.display = "none"
+
+
+                        if(feedback_type === "concise"){
+
+                            card.style.display = "flex";
+                            card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                            
+                            <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${correct_img}" alt=""></div>
+                            <div style="flex:2" class="right"><span class="green">${getRandomWord(right_words)}</span> <br/> Correct answer.</div>
+                            
+                            `
+
+                            document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
 
                             
-                    document.getElementById(card.dataset.btn).style = "block"
-                    card.style.display = "none"
+                            const x_marks = Array.from(document.querySelectorAll(".x_mark"))
+                            x_marks.forEach((ele)=>{
+                                ele.addEventListener("click",()=>{
+            
+                                        
+                                document.getElementById(card.dataset.btn).style = "block"
+                                card.style.display = "none"
+                                })
+                            })
+
+                        }else if(feedback_type === "detailed"){
+
+                                            
+                            card.style.display = "block";
+
+                            
+                            card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                            <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${correct_img}" alt=""></div>
+                            <div style="flex:3" class="right"><span class="green">${getRandomWord(right_words)}  Correct answer.</span> <br/> ${cause_answer}</div>`
+            
+                            document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
+
+                            
+                            const x_marks = Array.from(document.querySelectorAll(".x_mark"))
+                            x_marks.forEach((ele)=>{
+                                ele.addEventListener("click",()=>{
+            
+                                        
+                                document.getElementById(card.dataset.btn).style = "block"
+                                card.style.display = "none"
+                                })
+                            })
+
+                        }
+                        
+    
+                        
+    
                     })
                 })
+
+
 
             
 
@@ -346,14 +440,43 @@ answers_array.forEach((ele)=>{
                     
                     
                     if(card.children[1].classList.contains("try_again")){
+
+                        const choose_btns_array = Array.from(choose_btns.children);
+                        const wrapper = document.createElement("div");
+                        wrapper.className = "choose_btns btn_cont"
+        
+        
+        
+                        choose_btns_array.forEach((ele)=>{
+                            wrapper.appendChild(ele);
+        
+                        })
+        
+                        choose_btns.appendChild(wrapper)
+        
+                        
+                        const txt = document.createElement("div");
+                        txt.className = " bold"
+                        txt.style.fontSize = "18px"
+                        txt.textContent = "Please, Select the feedback of your choice"
+                        const br = document.createElement("br");
+                        choose_btns.prepend(br)
+                        choose_btns.prepend(txt)
+        
+        
+        
+        
+        
+                        choose_btns.style.display = "flex"
+        
+                        card.style.display = "none"
                         const all_answers = Array.from(document.querySelectorAll(".answer"))
+
+
                         all_answers.forEach((ele)=>{
-                            
-                                                    
-                            if(!ele.children[0].classList.contains("none_editable")){
-                                ele.children[0].disabled = false
+                            if(!ele.classList.contains(q_num)){
+                                ele.children[0].disabled = true
                             }
-                            
                         })
 
                         const cause_answer = causes_answers[parseInt(ele.dataset.q.split("q")[1]) - 1][ele.dataset.q]
@@ -361,31 +484,90 @@ answers_array.forEach((ele)=>{
                         const random_index = Math.floor(Math.random() * wrong_short_words.length)
                         const wrong_short = wrong_short_words[random_index];
                         const wrong_long = wrong_long_words[Math.floor(Math.random() * wrong_long_words.length)]
-                        const audio = new Audio() 
-                        audio.src = getRandomWord(wrong_sounds)
-                        audio.play()
-                        
-                        card.style.display = "block";
-                        
-                        card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
-                        <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
-                        <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span>  <span class="black" >${wrong_long}</span> <br/> <div style="margin-top:4px"> The correct answer is   <span class="blue">"${right_ans}"</span></div> <br style="content: '';"> <div style="margin-top:10px">${cause_answer}</div> </div>`
-    
-                        document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
-                        q_array.forEach((radio)=>{
-                            radio.children[0].disabled = true
-                            radio.children[0].classList.add("none_editable")
-                        })
-    
-                        const x_marks = Array.from(document.querySelectorAll(".x_mark"))
-                        x_marks.forEach((ele)=>{
-                            ele.addEventListener("click",()=>{
 
+
+
+                        choose_btns_array.forEach((btn)=>{
+                            btn.addEventListener("click",()=>{
+                                const audio = new Audio() 
+                                audio.src = getRandomWord(wrong_sounds)
+                                audio.play()
+
+                                q_array.forEach((radio)=>{
+                                    radio.children[0].disabled = true
+                                    radio.children[0].classList.add("none_editable")
+                                })
+
+                                all_answers.forEach((ele)=>{
+                            
+                                                    
+                                    if(!ele.children[0].classList.contains("none_editable")){
+                                        ele.children[0].disabled = false
+                                    }
                                     
-                            document.getElementById(card.dataset.btn).style = "block"
-                            card.style.display = "none"
+                                })
+            
+                                const feedback_type = btn.dataset.type;
+                                choose_btns.style.display = "none"
+        
+        
+                                if(feedback_type === "concise"){
+
+                                    card.style.display = "flex";
+                                    card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                                    <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
+                                    <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span>  <span class="black">${wrong_long}</span> <br/> The correct answer is  <span class="blue">"${right_ans}"</span> </div>`
+                
+                                    document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
+
+                
+                                    const x_marks = Array.from(document.querySelectorAll(".x_mark"))
+                                    x_marks.forEach((ele)=>{
+                                        ele.addEventListener("click",()=>{
+            
+                                                
+                                        document.getElementById(card.dataset.btn).style = "block"
+                                        card.style.display = "none"
+                                        })
+                                    })
+
+
+        
+                                }else if(feedback_type === "detailed"){
+
+                                    card.style.display = "block";
+                        
+                                    card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
+                                    <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
+                                    <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span> <span class="black">${wrong_long}</span>   <span class="blue">"${right_ans}"</span> <br/>  ${cause_answer} </div>`
+                
+                                    document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
+
+                
+                                    const x_marks = Array.from(document.querySelectorAll(".x_mark"))
+                                    x_marks.forEach((ele)=>{
+                                        ele.addEventListener("click",()=>{
+            
+                                                
+                                        document.getElementById(card.dataset.btn).style = "block"
+                                        card.style.display = "none"
+                                        })
+                                    })
+        
+                                                    
+
+        
+                                }
+
+                                
+                                
+            
+                                
+            
                             })
                         })
+                        
+                      
 
 
 
