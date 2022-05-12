@@ -243,16 +243,19 @@ form{
 
 .rating > div{
     color: black;
-    font-size: 15px;
+    font-size: 13px;
     margin-top: 5px;
         
 
 }
 
+
+
+
 .ratings{
     display: flex;
     font-size: 35px;
-    gap: 5px;
+    gap: 15px;
     padding: 5px;
     margin-top: 20px;
     color: #24528f;
@@ -263,7 +266,7 @@ form{
 .ratings > div{
     transition: .3s;
     cursor: pointer;
-    min-width: 60px;
+    
     
 }
 
