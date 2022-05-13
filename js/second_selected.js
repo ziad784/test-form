@@ -43,6 +43,34 @@ const causes_answers = [
     {"q19":`Because taking business management course, means Faisal will learn how to do the work. So, you can predict/ guess that Faisal can do the work himself and doesn't need to employ someone else to do the work.`},
     {"q20":`Because from reading the whole conversation, you can understand and come out with the result that says: " As long as you still alive, It's never too late to do what you wish".`},
 ]
+
+
+const ratings_data = [
+    {"q1":""},
+    {"q2":""},
+    {"q3":""},
+    {"q4":""},
+    {"q5":""},
+    {"q6":""},
+    {"q7":""},
+    {"q8":""},
+    {"q9":""},
+    {"q10":""},
+    {"q11":""},
+    {"q12":""},
+    {"q13":""},
+    {"q14":""},
+    {"q15":""},
+    {"q16":""},
+    {"q17":""},
+    {"q18":""},
+    {"q19":""},
+    {"q20":""},
+]
+
+
+
+
 const right_words = [
     "Well done!",
     "Excellent!",
@@ -66,7 +94,7 @@ const TryAgain_words = [
     "Try once more",
     "Give it another try!",
     "Try again!",
-    "Come on! You can do it!",
+    "Come on! You can do it.",
     "Never give up!",
     "Keep tying!",
     "Stay strong!",
@@ -170,6 +198,7 @@ function Validation(){
 
     for (let i = count - 4; i < count; i++) {
         const element = questions[i];
+        const rate = ratings_data[i];
    
         const q_num = element.children[1].dataset.q
         
@@ -189,6 +218,27 @@ function Validation(){
             }
 
         } 
+
+
+        if(rate[q_num].length <= 1){
+            isvalid = false
+            const err = document.createElement("div")
+            err.className = `err rate_err rate_err_${q_num}`;
+            err.innerHTML = `
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <div>Please, evaluate the feedback.</div>
+            
+            `
+
+            if(!element.children[element.children.length - 1].classList.contains("err")){
+
+                if(!element.children[element.children.length - 1].classList.contains("rate_err")){
+                    element.appendChild(err);
+                }
+
+            }
+
+        }
 
     }
 
@@ -240,6 +290,7 @@ function getRandomWord(words){
 }
 
 let try_count ;
+let wrong_counter = -1;
 
 
 const answers_array = Array.from(document.querySelectorAll(".answers"));
@@ -479,11 +530,20 @@ answers_array.forEach((ele)=>{
                             }
                         })
 
+                        q_array.forEach((radio)=>{
+                            radio.children[0].disabled = true
+                            radio.children[0].classList.add("none_editable")
+                        })
+
                         const cause_answer = causes_answers[parseInt(ele.dataset.q.split("q")[1]) - 1][ele.dataset.q]
 
-                        const random_index = Math.floor(Math.random() * wrong_short_words.length)
-                        const wrong_short = wrong_short_words[random_index];
-                        const wrong_long = wrong_long_words[Math.floor(Math.random() * wrong_long_words.length)]
+                        if(wrong_counter >= (wrong_words.length - 1)){
+                            wrong_counter = -1
+                        }
+
+                        wrong_counter += 1
+
+                        const wrong_word = wrong_words[wrong_counter]
 
 
 
@@ -516,7 +576,7 @@ answers_array.forEach((ele)=>{
                                     card.style.display = "flex";
                                     card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                                     <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
-                                    <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span>  <span class="black">${wrong_long}</span> <br/> The correct answer is  <span class="blue">"${right_ans}"</span> </div>`
+                                    <div class="wrong" style="flex:2">${wrong_word}  <span class="blue">"${right_ans}"</span> </div>`
                 
                                     document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
 
@@ -539,7 +599,7 @@ answers_array.forEach((ele)=>{
                         
                                     card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                                     <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
-                                    <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span>  <span class="black" >${wrong_long}</span> <br/> <div style="margin-top:4px"> The correct answer is   <span class="blue">"${right_ans}"</span></div> <br style="content: '';"> <div style="margin-top:10px">${cause_answer}</div> </div>`
+                                    <div class="wrong" style="flex:2"> ${wrong_word}  <span class="blue">"${right_ans}"</span> <br style="content: '';"> <div style="margin-top:10px">${cause_answer}</div> </div>`
                 
                                     document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
 
@@ -608,6 +668,13 @@ const rating = Array.from(document.querySelectorAll(".rating"))
 
 rating.forEach((ele)=>{
     ele.addEventListener("click",(e)=>{
+
+
+        const current_num = parseInt(e.currentTarget.dataset.q.split("q")[1]) - 1;
+        ratings_data[current_num][e.currentTarget.dataset.q] = e.currentTarget.innerText
+
+        document.querySelector(".rate_err_"+e.currentTarget.dataset.q)?.remove();
+        
         
         const color_name = e.currentTarget.className.split("_")[1];
 

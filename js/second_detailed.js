@@ -44,6 +44,32 @@ const causes_answers = [
     {"q20":`Because from reading the whole conversation, you can understand and come out with the result that says: " As long as you still alive, It's never too late to do what you wish".`},
 ]
 
+
+const ratings_data = [
+    {"q1":""},
+    {"q2":""},
+    {"q3":""},
+    {"q4":""},
+    {"q5":""},
+    {"q6":""},
+    {"q7":""},
+    {"q8":""},
+    {"q9":""},
+    {"q10":""},
+    {"q11":""},
+    {"q12":""},
+    {"q13":""},
+    {"q14":""},
+    {"q15":""},
+    {"q16":""},
+    {"q17":""},
+    {"q18":""},
+    {"q19":""},
+    {"q20":""},
+]
+
+
+
 const right_words = [
     "Well done!",
     "Excellent!",
@@ -67,7 +93,7 @@ const TryAgain_words = [
     "Try once more",
     "Give it another try!",
     "Try again!",
-    "Come on! You can do it!",
+    "Come on! You can do it",
     "Never give up!",
     "Keep tying!",
     "Stay strong!",
@@ -75,19 +101,15 @@ const TryAgain_words = [
     "Never Stop!"
 ]
 
+const wrong_words = [
 
-const wrong_short_words = [
-    "Sorry!",
-    "No!",
-    "Oops!",
-    "This is not true!",
-    
-]
-const wrong_long_words = [
-    "Your answer is wrong. ",
-    "This is not the right answer.",
-    "Incorrect answer. ",
-    
+   
+    `<span class="red">Sorry!</span>   <span class="black">Your answer is wrong.</span>  <br/> The correct answer is`,
+    `<span class="red">No!</span>   <span class="black">This is not the right answer.</span>  <br/> The correct answer is`,
+    `<span class="red">Oops!</span>   <span class="black">Incorrect answer.</span>  <br/> The correct answer is`,
+    `<span class="red">This is not true!</span>  <br/> The correct answer is`,
+    `<span class="red">Sorry!</span>   <span class="black">You didn’t get it.</span>  <br/> The correct answer is`,
+
     
 ]
 
@@ -171,6 +193,7 @@ function Validation(){
 
     for (let i = count - 4; i < count; i++) {
         const element = questions[i];
+        const rate = ratings_data[i];
    
         const q_num = element.children[1].dataset.q
         
@@ -190,6 +213,27 @@ function Validation(){
             }
 
         } 
+
+
+        if(rate[q_num].length <= 1){
+            isvalid = false
+            const err = document.createElement("div")
+            err.className = `err rate_err rate_err_${q_num}`;
+            err.innerHTML = `
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <div>Please, evaluate the feedback.</div>
+            
+            `
+
+            if(!element.children[element.children.length - 1].classList.contains("err")){
+
+                if(!element.children[element.children.length - 1].classList.contains("rate_err")){
+                    element.appendChild(err);
+                }
+
+            }
+
+        }
 
     }
 
@@ -241,6 +285,7 @@ function getRandomWord(words){
 }
 
 let try_count ;
+let wrong_counter = -1;
 
 
 const answers_array = Array.from(document.querySelectorAll(".answers"));
@@ -303,7 +348,7 @@ answers_array.forEach((ele)=>{
                     radio.children[0].disabled = true
                     radio.children[0].classList.add("none_editable")
                 })
-                console.log(q_array);
+               
 
                 const x_marks = Array.from(document.querySelectorAll(".x_mark"))
                 x_marks.forEach((ele)=>{
@@ -358,9 +403,13 @@ answers_array.forEach((ele)=>{
 
                         const cause_answer = causes_answers[parseInt(ele.dataset.q.split("q")[1]) - 1][ele.dataset.q]
 
-                        const random_index = Math.floor(Math.random() * wrong_short_words.length)
-                        const wrong_short = wrong_short_words[random_index];
-                        const wrong_long = wrong_long_words[Math.floor(Math.random() * wrong_long_words.length)]
+                        if(wrong_counter >= (wrong_words.length - 1)){
+                            wrong_counter = -1
+                        }
+
+                        wrong_counter += 1
+
+                        const wrong_word = wrong_words[wrong_counter]
                         const audio = new Audio() 
                         audio.src = getRandomWord(wrong_sounds)
                         audio.play()
@@ -369,7 +418,7 @@ answers_array.forEach((ele)=>{
                         
                         card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                         <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
-                        <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span>  <span class="black" >${wrong_long}</span> <br/> <div style="margin-top:4px"> The correct answer is   <span class="blue">"${right_ans}"</span></div> <br style="content: '';"> <div style="margin-top:10px">${cause_answer}</div> </div>`
+                        <div class="wrong" style="flex:2"> ${wrong_word}  <span class="blue">"${right_ans}"</span> <br style="content: '';"> <div style="margin-top:10px">${cause_answer}</div> </div>`
     
                         document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
                         q_array.forEach((radio)=>{
@@ -426,6 +475,13 @@ const rating = Array.from(document.querySelectorAll(".rating"))
 
 rating.forEach((ele)=>{
     ele.addEventListener("click",(e)=>{
+
+
+        const current_num = parseInt(e.currentTarget.dataset.q.split("q")[1]) - 1;
+        ratings_data[current_num][e.currentTarget.dataset.q] = e.currentTarget.innerText
+
+        document.querySelector(".rate_err_"+e.currentTarget.dataset.q)?.remove();
+        
         
         const color_name = e.currentTarget.className.split("_")[1];
 
@@ -445,6 +501,7 @@ rating.forEach((ele)=>{
 
     })
 })
+
 
 
 

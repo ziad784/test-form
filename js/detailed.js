@@ -36,13 +36,37 @@ const causes_answers = [
     {"q12":"Because the last paragragh of the text tells us about what to do when trying to solve a problem. It mentions the true and wrong behaviours."},
     {"q13":'Because this phrase is mentioned in paragragh 4. The verb "greet"means saying "Hi "to other people, but here it says "greet the day" . You can guess, It means be happy and positive.'},
     {"q14":'Because "positive" mentioned many times in the text as a good thing. Also, good things give happiness. So, you can put it in the group words that has good meanings.'},
-    {"q15":`Because while reading paragrapgh 4 you can recognize the fact that " stress lowered body resistance to diseases" and this is not good, great, happy , or nice fact. It's a sad fact.`},
+    {"q15":`Because while reading paragrapgh 4: you can recognize the fact that " stress lowered body resistance to diseases" and this is not good, great, happy , or nice fact. It's a sad fact.`},
     {"q16":`Because while reading the whole text , you can recognize that each paragraph gives one tip to control stress. But if we want only one sentence that represents the text. It will be that we should control our response to stress. You can find it in paragraph 1.`},
     {"q17":`Because each paragraph has one idea and the good title of the passage should be general and cover all the ideas in the paragraphs`},
     {"q18":`Because when we teach people about the diseases that stress can cause and give them tips for controlling it, this can help them to reduce it.`},
     {"q19":`Because controlling stress is good for health, you can predict/ guess that a person who controls his stress will eat and sleep well.`},
     {"q20":`Because from reading the whole text, you can come out with the result that says: stress is not good for health.`},
 ]
+
+const ratings_data = [
+    {"q1":""},
+    {"q2":""},
+    {"q3":""},
+    {"q4":""},
+    {"q5":""},
+    {"q6":""},
+    {"q7":""},
+    {"q8":""},
+    {"q9":""},
+    {"q10":""},
+    {"q11":""},
+    {"q12":""},
+    {"q13":""},
+    {"q14":""},
+    {"q15":""},
+    {"q16":""},
+    {"q17":""},
+    {"q18":""},
+    {"q19":""},
+    {"q20":""},
+]
+
 
 
 const right_words = [
@@ -68,7 +92,7 @@ const TryAgain_words = [
     "Try once more",
     "Give it another try!",
     "Try again!",
-    "Come on! You can do it!",
+    "Come on! You can do it.",
     "Never give up!",
     "Keep tying!",
     "Stay strong!",
@@ -77,17 +101,14 @@ const TryAgain_words = [
 ]
 
 
-const wrong_short_words = [
-    "Sorry!",
-    "No!",
-    "Oops!",
-    "This is not true!",
-    
-]
-const wrong_long_words = [
-    "Your answer is wrong. ",
-    "This is not the right answer. ",
-    "Incorrect answer. ",
+const wrong_words = [
+
+   
+    `<span class="red">Sorry!</span>   <span class="black">Your answer is wrong.</span>  <br/> The correct answer is`,
+    `<span class="red">No!</span>   <span class="black">This is not the right answer.</span>  <br/> The correct answer is`,
+    `<span class="red">Oops!</span>   <span class="black">Incorrect answer.</span>  <br/> The correct answer is`,
+    `<span class="red">This is not true!</span>  <br/> The correct answer is`,
+    `<span class="red">Sorry!</span>   <span class="black">You didn’t get it.</span>  <br/> The correct answer is`,
 
     
 ]
@@ -165,6 +186,7 @@ function RenderPage(){
 window.onload = RenderPage
 
 
+
 function Validation(){
     const count = page * 4
     const questions = Array.from(document.querySelector(".questions").children)
@@ -172,6 +194,7 @@ function Validation(){
 
     for (let i = count - 4; i < count; i++) {
         const element = questions[i];
+        const rate = ratings_data[i];
    
         const q_num = element.children[1].dataset.q
         
@@ -191,6 +214,27 @@ function Validation(){
             }
 
         } 
+
+
+        if(rate[q_num].length <= 1){
+            isvalid = false
+            const err = document.createElement("div")
+            err.className = `err rate_err rate_err_${q_num}`;
+            err.innerHTML = `
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <div>Please, evaluate the feedback.</div>
+            
+            `
+
+            if(!element.children[element.children.length - 1].classList.contains("err")){
+
+                if(!element.children[element.children.length - 1].classList.contains("rate_err")){
+                    element.appendChild(err);
+                }
+
+            }
+
+        }
 
     }
 
@@ -242,6 +286,8 @@ function getRandomWord(words){
 }
 
 let try_count ;
+
+let wrong_counter = -1;
 
 
 const answers_array = Array.from(document.querySelectorAll(".answers"));
@@ -360,10 +406,14 @@ answers_array.forEach((ele)=>{
                         })
 
                         const cause_answer = causes_answers[parseInt(ele.dataset.q.split("q")[1]) - 1][ele.dataset.q]
+                        
+                        if(wrong_counter >= (wrong_words.length - 1)){
+                            wrong_counter = -1
+                        }
 
-                        const random_index = Math.floor(Math.random() * wrong_short_words.length)
-                        const wrong_short = wrong_short_words[random_index];
-                        const wrong_long = wrong_long_words[Math.floor(Math.random() * wrong_long_words.length)]
+                        wrong_counter += 1
+
+                        const wrong_word = wrong_words[wrong_counter]
                         const audio = new Audio() 
                         audio.src = getRandomWord(wrong_sounds)
                         audio.play()
@@ -372,7 +422,7 @@ answers_array.forEach((ele)=>{
                         
                         card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                         <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${getRandomWord(wrong_imgs)}" alt=""></div>
-                        <div class="wrong" style="flex:2"><span class="red">${wrong_short}</span>  <span class="black" >${wrong_long}</span> <br/> <div style="margin-top:4px"> The correct answer is   <span class="blue">"${right_ans}"</span></div> <br style="content: '';"> <div style="margin-top:10px">${cause_answer}</div> </div>`
+                        <div class="wrong" style="flex:2"> ${wrong_word}  <span class="blue">"${right_ans}"</span> <br style="content: '';"> <div style="margin-top:10px">${cause_answer}</div> </div>`
     
                         document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
                         q_array.forEach((radio)=>{
@@ -429,6 +479,13 @@ const rating = Array.from(document.querySelectorAll(".rating"))
 
 rating.forEach((ele)=>{
     ele.addEventListener("click",(e)=>{
+
+
+        const current_num = parseInt(e.currentTarget.dataset.q.split("q")[1]) - 1;
+        ratings_data[current_num][e.currentTarget.dataset.q] = e.currentTarget.innerText
+
+        document.querySelector(".rate_err_"+e.currentTarget.dataset.q)?.remove();
+        
         
         const color_name = e.currentTarget.className.split("_")[1];
 
