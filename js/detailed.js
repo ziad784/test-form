@@ -36,7 +36,7 @@ const causes_answers = [
     {"q12":"Because the last paragragh of the text tells us about what to do when trying to solve a problem. It mentions the true and wrong behaviours."},
     {"q13":'Because this phrase is mentioned in paragragh 4. The verb "greet"means saying "Hi "to other people, but here it says "greet the day" . You can guess, It means be happy and positive.'},
     {"q14":'Because "positive" mentioned many times in the text as a good thing. Also, good things give happiness. So, you can put it in the group words that has good meanings.'},
-    {"q15":`Because while reading paragrapgh 4: you can recognize the fact that " stress lowered body resistance to diseases" and this is not good, great, happy , or nice fact. It's a sad fact.`},
+    {"q15":`Because while reading paragrapgh 4, you can recognize the fact that " stress lowered body resistance to diseases" and this is not good, great, happy , or nice fact. It's a sad fact.`},
     {"q16":`Because while reading the whole text , you can recognize that each paragraph gives one tip to control stress. But if we want only one sentence that represents the text. It will be that we should control our response to stress. You can find it in paragraph 1.`},
     {"q17":`Because each paragraph has one idea and the good title of the passage should be general and cover all the ideas in the paragraphs`},
     {"q18":`Because when we teach people about the diseases that stress can cause and give them tips for controlling it, this can help them to reduce it.`},
