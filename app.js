@@ -481,3 +481,10 @@ rating.forEach((ele)=>{
 
     })
 })
+
+
+const zoom_in = document.querySelector(".right_zoom");
+
+zoom_in.addEventListener("click",()=>{
+    document.body.style.zoom = "110%"
+})
