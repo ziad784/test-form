@@ -68,7 +68,7 @@ const right_words = [
 
 
 const TryAgain_words = [
-    "Try once more",
+
     "Give it another try!",
     "Try again!",
     "Come on! You can do it.",
