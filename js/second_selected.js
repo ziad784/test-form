@@ -103,18 +103,15 @@ const TryAgain_words = [
 ]
 
 
-const wrong_short_words = [
-    "Sorry!",
-    "No!",
-    "Oops!",
-    "This is not true!",
-    
-]
-const wrong_long_words = [
-    "Your answer is wrong. ",
-    "This is not the right answer. ",
-    "Incorrect answer. ",
-    
+const wrong_words = [
+
+   
+    `<span class="red">Sorry!</span>   <span class="black">Your answer is wrong.</span>  <br/> The correct answer is`,
+    `<span class="red">No!</span>   <span class="black">This is not the right answer.</span>  <br/> The correct answer is`,
+    `<span class="red">Oops!</span>   <span class="black">Incorrect answer.</span>  <br/> The correct answer is`,
+    `<span class="red">This is not true!</span>  <br/> The correct answer is`,
+    `<span class="red">Sorry!</span>   <span class="black">You didn’t get it.</span>  <br/> The correct answer is`,
+
     
 ]
 
