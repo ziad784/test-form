@@ -385,7 +385,7 @@ answers_array.forEach((ele)=>{
                             
                             card.innerHTML = `<div class="x_mark"><i class="fa-solid fa-xmark"></i></div>
                             <div style="flex:1"><img class="emoji_img" style="object-fit:contain;" src="${correct_img}" alt=""></div>
-                            <div style="flex:3" class="right"><span class="green">${getRandomWord(right_words)}  Correct answer.</span> <br/> ${cause_answer}</div>`
+                            <div style="flex:3" class="right"><span class="green">${getRandomWord(right_words)}  Correct answer.</span> <br/> <div style="margin-top:10px">${cause_answer}</div></div>`
             
                             document.getElementById(ele.dataset.q+"_rating").style.display = "flex"
 
