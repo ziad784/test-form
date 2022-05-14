@@ -45,6 +45,31 @@ const ratings_data = [
 ]
 
 
+const answers_counter = [
+
+    {"q1":""},
+    {"q2":""},
+    {"q3":""},
+    {"q4":""},
+    {"q5":""},
+    {"q6":""},
+    {"q7":""},
+    {"q8":""},
+    {"q9":""},
+    {"q10":""},
+    {"q11":""},
+    {"q12":""},
+    {"q13":""},
+    {"q14":""},
+    {"q15":""},
+    {"q16":""},
+    {"q17":""},
+    {"q18":""},
+    {"q19":""},
+    {"q20":""},
+
+]
+
 
 const right_words = [
     "Well done!",
@@ -135,6 +160,7 @@ const wrong_sounds = [
 ]
 
 const next_btn = document.getElementById("next_btn");
+const finish_btn = document.getElementById("finish_btn");
 const back_btn = document.getElementById("back_btn");
 
 
@@ -229,6 +255,7 @@ next_btn.addEventListener("click",()=>{
             back_btn.style.display = "block"
             if(page == 5){
                 next_btn.style.display = "none"
+                finish_btn.style.display = "block"
             }
         }
 
@@ -258,6 +285,13 @@ back_btn.addEventListener("click",()=>{
 
 
 
+finish_btn.addEventListener("click",()=>{
+    localStorage.setItem("answers_data",JSON.stringify(answers_counter))
+    localStorage.setItem("rating",JSON.stringify(ratings_data))
+    location.replace("results.html")
+})
+
+
 function getRandomWord(words){
     return words[Math.floor(Math.random() * words.length)]
 }
@@ -285,6 +319,13 @@ answers_array.forEach((ele)=>{
             
             
             if(right_ans == e.target.value){
+
+                const current_num = parseInt(q_num.split("q")[1]) - 1;
+                answers_counter[current_num][q_num] = "right"
+ 
+
+
+
                 const all_answers = Array.from(document.querySelectorAll(".answer"))
                 all_answers.forEach((ele)=>{
                     
@@ -372,6 +413,9 @@ answers_array.forEach((ele)=>{
                     
                     
                     if(card.children[1].classList.contains("try_again")){
+
+                        const current_num = parseInt(q_num.split("q")[1]) - 1;
+                        answers_counter[current_num][q_num] = "wrong"
                         const all_answers = Array.from(document.querySelectorAll(".answer"))
                         all_answers.forEach((ele)=>{
                             
@@ -483,8 +527,3 @@ rating.forEach((ele)=>{
 })
 
 
-const zoom_in = document.querySelector(".right_zoom");
-
-zoom_in.addEventListener("click",()=>{
-    document.body.style.zoom = "110%"
-})

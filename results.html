@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Results</title>
+
+    <script>
+        if(!localStorage.getItem("answers_data") && !localStorage.getItem("rating")){
+            location.replace("/")
+        }
+    </script>
+
 </head>
 <body>
 
