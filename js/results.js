@@ -31,6 +31,10 @@ const myChart = new Chart(ctx, {
         }
     }
 });
+
+
+
+
  new Chart(ctx2, {
     type: 'bar',
     data: {
@@ -105,13 +109,13 @@ const myChart = new Chart(ctx, {
     }
 });
 
- new Chart(one_rate_ctx, {
+ const rating_chart = new Chart(one_rate_ctx, {
     type: 'bar',
     data: {
-        labels: ['Level 1','Level 2','Level 3','Level 4','Level 5'],
+        labels: ['Poor','Not bad','Ok','So good','Excellent'],
         datasets: [{
             label: 'Rating',
-            data: [3,4,1,2,4],
+            data: [3,4,1,2,5],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -141,4 +145,5 @@ const myChart = new Chart(ctx, {
         }
     }
 });
+
 
